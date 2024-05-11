@@ -1,13 +1,13 @@
-2024-05-11 17:16:07 UTC
+2024-05-11 17:36:34 UTC
 Windows-10-10.0.22631
 Ren'Py 8.2.1.24030407
 
 Early init took 0.09s
-Loading error handling took 0.03s
-Loading script took 0.18s
+Loading error handling took 0.04s
+Loading script took 0.20s
 Loading save slot metadata took 0.04s
 Loading persistent took 0.00s
-Running init code took 0.06s
+Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.03s
@@ -29,7 +29,7 @@ Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Interface start took 0.06s
 
@@ -43,6 +43,28 @@ Version: b'4.6.0 Compatibility Profile Context 22.20.44.56.230407'
 Display Info: None
 Screen sizes: virtual=(1280, 720) physical=(1184, 666) drawable=(1184, 666)
 Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 695, in run
+    he.result = command_fn(l)
+  File "renpy/common/00console.rpy", line 1024, in jump
+    raise Exception("Ren'Py script not enabled. Not jumping.")
+Exception: Ren'Py script not enabled. Not jumping.
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 719, in run
+    result = renpy.python.py_eval(code)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+NameError: name 'esc' is not defined
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s

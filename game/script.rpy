@@ -109,7 +109,9 @@ label choices_a:
     jump ending_a
 
 label choices_b:
-    a ""
+    show zeil normal
+    a "...."
+    jump ending_b
 
 label ending_a:
     show zeil smile
@@ -128,6 +130,6 @@ label ending_b:
     a "Wow thanks soooooo much for nothing!"
     show zeil sad
     a "I'd be crying right now but I don't have a crying sprite so this will have to do"
-    show zeil mad
+    show zeil angry
     a "You suck"
     return

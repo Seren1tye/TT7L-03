@@ -62,4 +62,24 @@ label background:
     show zeil annoyed
     with fade
     a "That's rude you know! {size=-10}Although I was kinda asking for it.....{/size}"
+
+label bgm:
+    show zeil normal
+    a "..."
+    show zeil bored
+    a "..."
+    show zeil annoyed
+    a "..."
+    sham zeil angry
+    a "Are you really gonna let me suffer in silence!"
+    a "At least put some background music!"
+    # Play background music
+    play music "audio/bgm_basketball" fadein
+    hide zeil angry
+    a "I don't like this music."
+    a "Play something else."
+    a "Also reduce the volume it's waaaaaaaaaay too loud."
+    queue music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273" 1.0 volume
+    a "That's better"
+
     return

@@ -83,4 +83,7 @@ label bgm:
     play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273.ogg" volume 0.25
     a "That's better"
 
+label sfx:
+    play audio "sfx_bell.mp3"
+    a "h"
     return

@@ -70,7 +70,7 @@ label bgm:
     a "..."
     show zeil annoyed
     a "..."
-    sham zeil angry
+    show zeil angry
     a "Are you really gonna let me suffer in silence!"
     a "At least put some background music!"
     # Play background music

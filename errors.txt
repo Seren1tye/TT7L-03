@@ -2,7 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 8: keyword argument repeated: color
+File "game/script.rpy", line 73: expected statement.
+    sham zeil angry
+                   ^
+
+File "game/script.rpy", line 77: expected simple expression
+    play music "audio/bgm_basketball" fadein
+                                            ^
+
+File "game/script.rpy", line 82: expected end of line
+    queue music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273" 1.0 volume
+                                                                              ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 12 00:12:16 2024
+Sun May 12 00:59:00 2024

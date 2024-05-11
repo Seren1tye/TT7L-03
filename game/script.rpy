@@ -57,5 +57,6 @@ label background:
     a "Betcha can't use \"scene\" instead hehehe."
 
     scene bg classroom
+    with dissolve
     a "Hey!!!!!"
     return

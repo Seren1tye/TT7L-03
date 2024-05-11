@@ -5,6 +5,7 @@
 
 define a = Character('Sery', color="#7F00FF")
 define b = Character('Sery clone', color="#87CEEB")
+define c = Character('Sery', color="#7F00FF" and 'Sery clone', color="#87CEEB")
 
 
 # The game starts here.

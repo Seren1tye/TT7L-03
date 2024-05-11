@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 77: expected simple expression
-    play music "audio/bgm_basketball" fadein
-                                            ^
-
-File "game/script.rpy", line 82: expected end of line
-    queue music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273" 1.0 volume
-                                                                              ^
+File "game/script.rpy", line 83: expected end of line
+    play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273" 0.2 volume
+                                                                             ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 12 01:03:31 2024
+Sun May 12 01:05:04 2024

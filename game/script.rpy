@@ -74,13 +74,13 @@ label bgm:
     a "Are you really gonna let me suffer in silence!"
     a "At least put some background music!"
     # Play background music
-    play music "audio/bgm_basketball" fadein 1.0
-    hide zeil angry
+    play music "audio/bgm_basketball.mp3" fadein 1.0
+    show zeil annoyed
     a "I don't like this music."
     a "Play something else."
     a "Also reduce the volume it's waaaaaaaaaay too loud."
     stop music
-    play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273" 0.25 volume
+    play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273.ogg"
     a "That's better"
 
     return

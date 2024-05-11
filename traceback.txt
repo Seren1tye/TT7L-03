@@ -1,28 +1,49 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 6, in script
-    define a = character('Sery', color="#7F00FF")
-  File "game/script.rpy", line 6, in <module>
-    define a = character('Sery', color="#7F00FF")
-NameError: name 'character' is not defined
+  File "game/script.rpy", line 79, in script
+    a "I don't like this music."
+OSError: Couldn't find file 'audiogm_basketball.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 6, in script
-    define a = character('Sery', color="#7F00FF")
-  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\ast.py", line 2219, in execute
-    self.set()
-  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\ast.py", line 2233, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 6, in <module>
-    define a = character('Sery', color="#7F00FF")
-NameError: name 'character' is not defined
+  File "game/script.rpy", line 79, in script
+    a "I don't like this music."
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\ast.py", line 2557, in execute
+    Say.execute(self)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\exports.py", line 1493, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\character.py", line 1394, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\character.py", line 1045, in do_display
+    display_say(who,
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\character.py", line 741, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\display\core.py", line 3022, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\audio\audio.py", line 1205, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\audio\audio.py", line 1183, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\audio\audio.py", line 1125, in periodic_pass
+    c.periodic()
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\audio\audio.py", line 534, in periodic
+    topf = load(filename)
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\audio\audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "C:\Users\USER\Desktop\renpy-8.2.1-sdk\renpy\loader.py", line 672, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'audiogm_basketball.mp3'.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Testing 1.0
-Sat May 11 23:56:47 2024
+Sun May 12 01:08:19 2024

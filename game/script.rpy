@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define a = character('Sery', color="#7F00FF")
+define a = Character('Sery', color="#7F00FF")
 
 
 # The game starts here.

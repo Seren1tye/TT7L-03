@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 32: expected statement.
+File "game/script.rpy", line 33: expected statement.
     a,b "Ok how do I undo this?"
      ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 12 00:03:52 2024
+Sun May 12 00:05:37 2024

@@ -30,7 +30,7 @@ label sprites:
     show zeil shocked at right
     a "Whoa...."
     b "I can clone myself??"
-    a,b "Ok how do I undo this?"
+    c "Ok how do I undo this?"
     # Removing a sprite from a scene.
     hide zeil shocked
     a "Ah, thats how I do it."

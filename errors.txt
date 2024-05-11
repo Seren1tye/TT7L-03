@@ -2,10 +2,6 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 73: expected statement.
-    sham zeil angry
-                   ^
-
 File "game/script.rpy", line 77: expected simple expression
     play music "audio/bgm_basketball" fadein
                                             ^
@@ -15,4 +11,4 @@ File "game/script.rpy", line 82: expected end of line
                                                                               ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 12 00:59:00 2024
+Sun May 12 01:03:31 2024

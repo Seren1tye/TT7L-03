@@ -80,7 +80,7 @@ label bgm:
     a "Play something else."
     a "Also reduce the volume it's waaaaaaaaaay too loud."
     stop music
-    play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273.ogg"
+    play music "audio/Persona 5 Royal - Mementos Upper Area__735000_4822273.ogg" volume 0.25
     a "That's better"
 
     return

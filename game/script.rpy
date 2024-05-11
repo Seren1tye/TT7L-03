@@ -85,5 +85,6 @@ label bgm:
 
 label sfx:
     play audio "sfx_bell.mp3"
-    a "h"
+    show zeil shocked
+    a "Oh the bell rang!"
     return

@@ -38,4 +38,24 @@ label sprites:
     hide extra normal
     a "Ah, thats how I do it."
 
+label background:
+    show zeil annoyed
+    a "This black void is so boring. Can I be somewhere else instead?"
+    # Adding a background to the scene.
+    scene bg classroom
+    show zeil angry
+    a "Wait are we at schooL????"
+    show zeil bored
+    a "Better than the black void at least."
+    show bg gym
+    show zeil shocked
+    a "Huh we're at the gym?"
+    a "We're switching locations FAST."
+    show zeil smug
+    # Use \"text\" to show quotation marks
+    a "Heh you're using a lot of \"show\" lines."
+    a "Betcha can't use \"scene\" instead hehehe."
+
+    scene bg classroom
+    a "Hey!!!!!"
     return

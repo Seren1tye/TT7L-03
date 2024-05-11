@@ -59,4 +59,7 @@ label background:
     scene bg classroom
     with dissolve
     a "Hey!!!!!"
+    show zeil annoyed
+    with fade
+    a "That's rude you know! {size=-10}Although I was kinda asking for it.....{/size}"
     return

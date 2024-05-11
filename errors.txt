@@ -5,4 +5,4 @@ errors listed below, and try again.
 File "game/script.rpy", line 8: keyword argument repeated: color
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun May 12 00:06:11 2024
+Sun May 12 00:12:16 2024

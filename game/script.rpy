@@ -23,7 +23,6 @@ label sprites:
     a "Oh thats how I look!"
     show zeil annoyed
     a "Thought I looked different but it doesn't matter anyways"
-    hide zeil annoyed
     show zeil smile
     a "Hmm..."
     a "I wonder if I can clone myself?"
@@ -87,4 +86,10 @@ label sfx:
     play audio "sfx_bell.mp3"
     show zeil shocked
     a "Oh the bell rang!"
+
+label choices:
+    show zeil sad
+    a "Looks like our time is up..."
+    show zeil 
+    a "Did you enjoy our time together{size=-5}and learn something?{/size}?"
     return

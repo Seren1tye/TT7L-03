@@ -1,33 +1,25 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define a = character('Sery', color="#7F00FF")
 
 
 # The game starts here.
 
 label start:
+    #Displaying text and character dialogue
+    "During an uneventful night."
+    a "Hello!"
+    a "I did this so I can try out RenPy for the first time"
+    
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    show eileen happy
-
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
+label sprites:
+    #Showing the character model and swapping expressions.
+    a "Wait where is my portrait?"
+    show zeil smile
+    a "Oh thats how I look!"
+    show zeil annoyed
+    a "Thought I looked different but it doesn't matter anyways"
     return

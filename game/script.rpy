@@ -92,4 +92,42 @@ label choices:
     a "Looks like our time is up..."
     show zeil 
     a "Did you enjoy our time together{size=-5}and learn something?{/size}?"
+# System to choose options
+menu:
+    "Yes":
+        jump choices_a
+
+    "No":
+        jump choices_b
+
+label choices_a:
+    show zeil laugh
+    a "I'm glad that we had fun!"
+    show zeil smile2
+    a "Sure I have inconsistent characterization but that shouldn't matter!"
+    a "This is just following a tutorial and taking extreme liberties after all."
+    jump ending_a
+
+label choices_b:
+    a ""
+
+label ending_a:
+    show zeil smile
+    a "Good luck on creating the actual novel!"
+    show zeil smile2
+    a "Anything is possible especially since you have the Internet at your disposal!"
+    show zeil sad
+    a "This is goodbye then (and not an excuse to use all the character sprites)"
+    show zeil smile
+    a "Goodbye"
+    return
+    
+label ending_b:
+    show zeil angry
+    a "What do you mean no????!!!"
+    a "Wow thanks soooooo much for nothing!"
+    show zeil sad
+    a "I'd be crying right now but I don't have a crying sprite so this will have to do"
+    show zeil mad
+    a "You suck"
     return

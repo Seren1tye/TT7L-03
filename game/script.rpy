@@ -23,12 +23,16 @@ label sprites:
     a "Oh thats how I look!"
     show zeil annoyed
     a "Thought I looked different but it doesn't matter anyways"
+    hide zeil annoyed
+    show zeil smile
     a "Hmm..."
     a "I wonder if I can clone myself?"
     # Adding another sprite in a scene.
+    show zeil shocked at left
     show extra normal at right
     a "Whoa...."
     b "I can clone myself??"
+    b "Wait this isn't a perfect clone! What a sham...."
     a "Ok how do I undo this?" (multiple=2)
     b "Ok how do I undo this?" (multiple=2)
     # Removing a sprite from a scene.

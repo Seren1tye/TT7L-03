@@ -4,6 +4,7 @@
 # name of the character.
 
 define a = Character('Sery', color="#7F00FF")
+define b = Character('Sery clone', color="#87CEEB")
 
 
 # The game starts here.
@@ -16,10 +17,21 @@ label start:
     
 
 label sprites:
-    #Showing the character model and swapping expressions.
+    #Showing an image on screen and swapping sprites.
     a "Wait where is my portrait?"
     show zeil smile
     a "Oh thats how I look!"
     show zeil annoyed
     a "Thought I looked different but it doesn't matter anyways"
+    a "Hmm..."
+    a "I wonder if I can clone myself?"
+    # Adding another sprite in a scene.
+    show zeil shocked at right
+    a "Whoa...."
+    b "I can clone myself??"
+    a,b "Ok how do I undo this?"
+    # Removing a sprite from a scene.
+    hide zeil shocked
+    a "Ah, thats how I do it."
+
     return

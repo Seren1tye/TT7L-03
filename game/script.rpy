@@ -33,8 +33,7 @@ label sprites:
     a "Whoa...."
     b "I can clone myself??"
     b "Wait this isn't a perfect clone! What a sham...."
-    a "Ok how do I undo this?" (multiple=2)
-    b "Ok how do I undo this?" (multiple=2)
+    a "Ok how do I undo this?"
     # Removing a sprite from a scene.
     hide extra normal
     a "Ah, thats how I do it."

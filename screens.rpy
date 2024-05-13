@@ -290,8 +290,8 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        xalign 0.5
+        yalign 0.6
 
         spacing gui.navigation_spacing
 
@@ -340,6 +340,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################

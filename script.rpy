@@ -8,7 +8,7 @@ define a = Character("Mia")
 define b = Character("James")
 
 # Variables to reach the endings.
-default mia_relationship = 0
+default mia_affection = 0
 default mia_make_up = 0
 default james_affection = 0
 default james_make_up = 0
@@ -26,9 +26,14 @@ label start:
     m "Hi"
 
     # Goes on until MC realises she's in a loop.
-    # Choices matter from here on out.
+    # Choices matter from here.
 
-    jump cafe
+    jump main_game
+
+label main_game:
+    $ loops += 1
+
+
 
 label cafe:
     menu :
@@ -44,11 +49,34 @@ label mia_problem:
     menu:
         a "You might be wondering about what happened to us."
         "Yes":
-            $ mia_make_up += 1
-        "I don't care":
+            $ mia_affection += 1
+            a "Well here's the thing...."
+
+        "No":
+            $ mia_dislike += 1
+            a "Oh... I see...."
+            a "Well why are you here then"
 
 
 
 label james_problem:
 
     return
+
+
+
+
+label looping_evaluation:
+    if escape_loop == True:
+        jump ending_evaluation
+    else:
+        $ default mia_affection = 0
+        $ default mia_make_up = 0
+        $ default james_affection = 0
+        $ default james_make_up = 0
+        $ default mia_dislike = -3
+        $ default james_dislike = -3
+        jump main_game
+
+
+label ending_evaluation:

@@ -3,7 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define m = Character("Miku")
+define a = Character("Mia")
+define b = Character("James")
 
 # Variables to reach the endings.
 default mia_relationship = 0

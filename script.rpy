@@ -24,8 +24,91 @@ default loops = -1
 
 label start:
 
-    # Prologue goes here
-    m "Hi"
+    # bedroom bg image
+    # Alarm sfx
+    # Stop alarm sfx
+    # Replay alarm sfx
+    "...."
+    m "....What time is it...."
+    "I pick up my phone on my bedside table."
+    "It reads 6:47 am 13th March 2024."
+    "I rose up from my bed immediately"
+    m "Oh no! I'm late for school!"
+    "I gotta rush to reach school on time."
+    "I quickly get out of bed and scramble to get ready for school."
+
+    # Classroom bg
+    # Bell sfx
+    m "{i}Phew{/i}"
+    "I audibly sigh as I manage to make it to school in time."
+    # Stomach grumbling sfx
+    "I had to skip breakfast in order to not be late."
+    "Sorry stomach"
+    # Show Mia and James on screen.
+    # Angry expressions
+    "Oh it's Mia and James."
+    "They're fighting again. It's been about a week 
+    since they're fighting with each other."
+    "Of course, our class has to witness their quarrels."
+    "Like how we witnessed them enter a relationship together after months 
+    of intense “will they won't they” moments."
+    "I'm kind of curious about what they are fighting about."
+
+    # Choice to get more dialogue options.
+    menu:
+        "Approach them":
+            jump explaination_prologue
+
+        "Leave them be":
+            "I don't think I have the right to interfere with them."
+            "I'll just leave them be."
+            "I look around and see all of my classmates staring at them arguing."
+            "The class couple is attracting a lot of attention that they're 
+            probably not aware off."
+            "Random classmate" "Guys! The teacher is coming!"
+            "Both of them immediately stopped arguing."
+            "I guess the threat of disciplinary action can make them shut up if nothing else can."
+            "Mia looked embarrased once she saw everyone looking at her."
+            "We all looked towards to our teacher as she entered our class."
+            jump cafe_prologue
+
+
+label explaination_prologue:
+    "As I approach Mia and James, I see them give glares that could kill each other."
+    "I'm scared to approach them now but I've already made up my mind so I might as 
+    well commit to it."
+    m "Hey guys, is there anything going on betwe-"
+    "Mia glares at me, cutting me off."
+    a "Go away, it's none of your business."
+    a "Look at what you've done! You've made someone else interfere in our problems!"
+    b "My fault? I'm sorry for being extremely loud, grabbing everyone's attention. 
+    Oh wait. That's you. And you're supposed to be the quiet one."
+    a "Can't you ever take responsibility for once! 
+    You juuust love to blame me for everything!"
+    b "Well it wasn't my idea to ignore the person I'm dating messages and calls!"
+    b "Which just so happens to be the same person that sits next to you in school."
+    b "Really smart move there."
+    # Show Mia flustered
+    a "We-well.."
+    a "I at least don't do ridiculous stuff like what you always do!"
+    a "Is singing loudly in a mall a good idea when we're on a date together?"
+    a "My younger brother is more mature than you."
+    a "He's 10."
+    b "Hey! That's just how I roll! At least it's part of me."
+    b "Speaking of maturity, as if you're any better."
+    b "I don't treat any minor inconvenience like the world is going to end."
+    a "Oh my god you are so insufferable if you think that's a \“minor inconvenience\”."
+    m "Hey guys, you both should stop arguing now."
+    "My voice fell onto deaf ears as they continued arguing to themselves."
+    "Random classmate" "Guys! The teacher is coming!"
+    "Both of them immediately stopped arguing."
+    "I guess the threat of disciplinary action can make them shut up if nothing else can."
+    "Mia looked embarrased once she saw everyone looking at her."
+    "I rushed towards my seat before the class started so I wouldn't 
+    be scolded by the teacher."
+
+label cafe_prologue:
+
 
     # Goes on until MC realises she's in a loop.
     # Choices matter from here.
@@ -108,10 +191,28 @@ label mia_after_school:
 label james_after_school:
     if james_cafe == True:
         james_affection += 2
+    jump james_after_school_dialogue
 
 label mia_after_school_dialogue:
+    # Text
+    "Should I?"
+    menu:
+        "Invite Mia to hang out outside school":
+            $ mia_outside == True
+            $ mia_affection += 1
+        "Leave her alone":
+            jump game_Stop_temp
+
 
 label james_after_school_dialogue:
+    # Text
+    "Should I?"
+    menu:
+        "Invite James to hang out outside school":
+            $ james_outside == True
+            $ james_affection += 1
+        "Leave him alone":
+            jump game_Stop_temp
 
 label game_Stop_temp:
     return

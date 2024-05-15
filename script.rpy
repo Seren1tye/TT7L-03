@@ -15,6 +15,8 @@ default james_make_up = 0
 default escape_loop = False
 default mia_cafe = False
 default james_cafe = False
+default mia_outside = False
+default james_outside = False
 default loops = -1
 
 
@@ -56,9 +58,11 @@ label cafe:
         "Who should I meet now?"
         "Mia":
             $ mia_affection += 1
+            $ mia_cafe = True
             jump mia_problem
         "James":
             $ james_affection += 1
+            $ james_cafe = True
             jump james_problem
         
         
@@ -87,9 +91,27 @@ label james_problem:
     b "Oh Miku..."
     b "What brings you here?"
 
+label after_school:
+    "Who should I meet now?"
+        "Mia":
+            $ mia_affection += 1
+            jump mia_after_school
+        "James":
+            $ james_affection += 1
+            jump james_after_school
 
-    return
+label mia_after_school:
+    if mia_cafe == True:
+        mia_affection += 2
+    jump mia_after_school_dialogue
 
+label james_after_school:
+    if james_cafe == True:
+        james_affection += 2
+
+label mia_after_school_dialogue:
+
+label james_after_school_dialogue:
 
 label game_Stop_temp:
     return

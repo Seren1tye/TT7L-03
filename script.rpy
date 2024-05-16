@@ -8,6 +8,7 @@ define a = Character("Mia")
 define b = Character("James")
 
 # Variables to reach the endings.
+default approach = False
 default mia_affection = -1 # Negative value
 default mia_make_up = 0
 default james_affection = -1 # Negative value
@@ -31,7 +32,7 @@ label start:
     "...."
     m "....What time is it...."
     "I pick up my phone on my bedside table."
-    "It reads 6:47 am 13th March 2024."
+    "It reads Friday, 13th September 2024, 6:47 am."
     "I rose up from my bed immediately"
     m "Oh no! I'm late for school!"
     "I gotta rush to reach school on time."
@@ -47,8 +48,9 @@ label start:
     # Show Mia and James on screen.
     # Angry expressions
     "Oh it's Mia and James."
-    "They're fighting again. It's been about a week 
-    since they're fighting with each other."
+    "They're fighting again." 
+    "It's been about a week since  they've been fighting with each other."
+    "They would argue loudly and give each other the silent treatment randomly."
     "Of course, our class has to witness their quarrels."
     "Like how we witnessed them enter a relationship together after months 
     of intense “will they won't they” moments."
@@ -57,6 +59,7 @@ label start:
     # Choice to get more dialogue options.
     menu:
         "Approach them":
+            $ approach == True
             jump explaination_prologue
 
         "Leave them be":
@@ -65,7 +68,7 @@ label start:
             "I look around and see all of my classmates staring at them arguing."
             "The class couple is attracting a lot of attention that they're 
             probably not aware off."
-            "Random classmate" "Guys! The teacher is coming!"
+            "Classmate" "Guys! The teacher is coming!"
             "Both of them immediately stopped arguing."
             "I guess the threat of disciplinary action can make them shut up if nothing else can."
             "Mia looked embarrased once she saw everyone looking at her."
@@ -99,24 +102,143 @@ label explaination_prologue:
     b "I don't treat any minor inconvenience like the world is going to end."
     a "Oh my god you are so insufferable if you think that's a \“minor inconvenience\”."
     m "Hey guys, you both should stop arguing now."
-    "My voice fell onto deaf ears as they continued arguing to themselves."
+    "They ignore me as they continue arguing to themselves."
     "Random classmate" "Guys! The teacher is coming!"
     "Both of them immediately stopped arguing."
-    "I guess the threat of disciplinary action can make them shut up if nothing else can."
-    "Mia looked embarrased once she saw everyone looking at her."
-    "I rushed towards my seat before the class started so I wouldn't 
+    "I guess the threat of disciplinary action can shut them up if nothing else can."
+    "Mia looks around and sees a lot of people staring at them."
+    "She sinks down to her chair trying to cover herself from the stares while 
+    James gives a sheepish look and sits down on his seat."
+    "I rush towards my seat before the class started so I wouldn't 
     be scolded by the teacher."
+    jump cafe_prologue
 
 label cafe_prologue:
+    # cafeteria bg
+    # Bell sfx
+    "Finally it's recess time."
+    "I can finally satiate my hunger."
+    "As I sit down with my group of friends to eat 
+    I feel someone tapping on my shoulder."
+    "???" "Hey Miku?"
+    "I look behind me and see Mia."
+    "She looks troubled."
+    a "Do you mind if I talk to you for a while?"
+    "Sorry hunger but curiosity has won me over."
+    "I excuse myself from my friends and head
+    to a more quiet corner in the cafeteria."
+    m "So what do you want to talk about?"
+    a "Well as you already know…me and James have been fighting a lot recently."
+    if approach == True:
+        a "....Im sorry about lashing out earlier."
+        a "I was so angry that I accidentally yelled at you."
+        "She's self aware? That's a first."
+        m "It's fine no offense taken."
+    m "Anyways what happened between you two?"
+    a "Well as you know James is very immature."
+    m "It feels like he hasn't matured ever since he was like 9 years old."
+    a "Hahaha..."
+    a "It usually pisses me off a lot but recently 
+    I feel like it's gotten even more irritating."
+    m "I wonder how you haven't exploded yet."
+    a "Hey what is that supposed to mean?"
+    "Mia sighs to herself."
+    a "a"
+    a "{size=-7}Okay calm down Amelia.{/size}"
+    a "I know he's been quite childish always and while it annoys me a lot."
+    a "I could tolerate it."
+    a "{size=-15}I also find it hot.{/size}"
+    m "Hmm? What did you say?"
+    # Mia blushes here.
+    a "N-nothing!"
+    a "But like I've said I feel that he's more irritating now."
+
+    menu:
+        "Well, did you talk to him about it?":
+            a "..."
+            a "No...."
+            a "I don't know how to bring it up with him."
+            a "We do argue from time to time but this is the 
+            first time we've ever argued this much."
+        "Since when did you start to feel it's more irritating?":
+            a "Last week I think?"
+            a "I'm not sure..."
+    return
 
 
     # Goes on until MC realises she's in a loop.
     # Choices matter from here.
 
-    jump main_game
+    #jump main_game
+label temp:
+    "The same thing happens every day."
+    "I go to school."
+    "Mia and James argue."
+    "I leave them alone."
+    "They stop before class starts."
+    "The day restarts."
+    "I go to school."
+    "Mia and James argue."
+    "I talk to them."
+    "They stop before class starts."
+    "The day restarts."
+    "I don't go to school."
+    "The day restarts."
+    "My mind thinks of a movie I watched a while ago."
+    "Groundhog Day."
+    "The protagonist, Phil, is stuck in a time loop 
+    and has to repeat the same day over and over again."
+    "He broke free after changing something in his life."
+    "I must be in the same situation."
+    "But it feels like no matter what I do I can't escape the time loop."
+    "Unless..."
+    # Mia and James appear on screen.
+    "My only way to escape is by stopping them from arguing."
+    "At least I hope that's the case."
+    "There's only one way to find out."
+
 
 label main_game:
     $ loops += 1
+    # Set this to play on the first gameplay loop
+    # Alarm sfx
+    # Stop alarm sfx
+    "The day looped again."
+    "It's time to try out my theory."
+    "If they stop arguing then I can move on to the next day."
+    "I don't even know how many times I've done this routine."
+    "I hope I don't ever lose track of myself."
+
+    # Put the message for consecutive loops here by using an elif statement.
+
+    # Class bgm
+    # Class bg
+    "I reach school early."
+    "There's not many people in class right now."
+    "I can see a few bags left alone on their seats."
+    "Guess their owners must be somewhere else."
+    "Less distractions at least."
+    "If my theory is true then I could make them reconcile together."
+    "I could also break them up."
+    "That's on the table but I'm not sure if I want to do it."
+    "Well it is AN option."
+    "I glance up at the clock."
+    "7:12am"
+    "I look towards the class entrance and see Mia entering class."
+    "It's almost time for them to start arguing."
+    "As soon as James enters the classroom, Mia will give him a death stare."
+    "He'll go to his seat and argue with Mia."
+    "I've seen it a few times already."
+    "Their argument gets boring to listen to after a while."
+    b "Hey Mia!"
+    b "Why haven't you responded to my text messages?"
+    a "Oh you wanna know why?"
+    a "Well it's cause of what you did!"
+    "Oh boy they're arguing again."
+    menu:
+        "Step into their argument":
+            $ mia_affection -= 1
+            $ james_affection += 1
 
     m "They have already started arguing but it's just background noise to me now."
     menu:
@@ -132,102 +254,103 @@ label main_game:
             jump cafe
 
 label confrontation:
+    a "How would I know what I did if you won't tell me?"
     # Text goes here
 
     jump cafe
 
-label cafe:
-    menu :
-        "Who should I meet now?"
-        "Mia":
-            $ mia_affection += 1
-            $ mia_cafe = True
-            jump mia_problem
-        "James":
-            $ james_affection += 1
-            $ james_cafe = True
-            jump james_problem
+# label cafe:
+#     menu :
+#         "Who should I meet now?"
+#         "Mia":
+#             $ mia_affection += 1
+#             $ mia_cafe = True
+#             jump mia_problem
+#         "James":
+#             $ james_affection += 1
+#             $ james_cafe = True
+#             jump james_problem
         
         
-label mia_problem:
-    a "Hi Miku."
-    menu:
-        a "You might be wondering about what happened to us."
-        "Yes":
-            $ mia_affection += 1
-            a "Well here's the thing...."
+# label mia_problem:
+#     a "Hi Miku."
+#     menu:
+#         a "You might be wondering about what happened to us."
+#         "Yes":
+#             $ mia_affection += 1
+#             a "Well here's the thing...."
 
-            jump game_Stop_temp
+#             jump game_Stop_temp
 
-            # Text
-
-
-
-        "No":
-            $ mia_affection -= 1
-            a "Oh... I see...."
-            a "Well why are you here then"
-
-            jump game_Stop_temp
-
-label james_problem:
-    b "Oh Miku..."
-    b "What brings you here?"
-
-label after_school:
-    "Who should I meet now?"
-        "Mia":
-            $ mia_affection += 1
-            jump mia_after_school
-        "James":
-            $ james_affection += 1
-            jump james_after_school
-
-label mia_after_school:
-    if mia_cafe == True:
-        mia_affection += 2
-    jump mia_after_school_dialogue
-
-label james_after_school:
-    if james_cafe == True:
-        james_affection += 2
-    jump james_after_school_dialogue
-
-label mia_after_school_dialogue:
-    # Text
-    "Should I?"
-    menu:
-        "Invite Mia to hang out outside school":
-            $ mia_outside == True
-            $ mia_affection += 1
-        "Leave her alone":
-            jump game_Stop_temp
+#             # Text
 
 
-label james_after_school_dialogue:
-    # Text
-    "Should I?"
-    menu:
-        "Invite James to hang out outside school":
-            $ james_outside == True
-            $ james_affection += 1
-        "Leave him alone":
-            jump game_Stop_temp
 
-label game_Stop_temp:
-    return
+#         "No":
+#             $ mia_affection -= 1
+#             a "Oh... I see...."
+#             a "Well why are you here then"
 
-label looping_evaluation:
-    if escape_loop == True:
-        jump ending_evaluation
-    else:
-        $ mia_affection = 0
-        $ mia_make_up = 0
-        $ james_affection = 0
-        $ james_make_up = 0
-        $ mia_dislike = -3
-        $ james_dislike = -3
-        jump main_game
+#             jump game_Stop_temp
+
+# label james_problem:
+#     b "Oh Miku..."
+#     b "What brings you here?"
+
+# label after_school:
+#     "Who should I meet now?"
+#         "Mia":
+#             $ mia_affection += 1
+#             jump mia_after_school
+#         "James":
+#             $ james_affection += 1
+#             jump james_after_school
+
+# label mia_after_school:
+#     if mia_cafe == True:
+#         mia_affection += 2
+#     jump mia_after_school_dialogue
+
+# label james_after_school:
+#     if james_cafe == True:
+#         james_affection += 2
+#     jump james_after_school_dialogue
+
+# label mia_after_school_dialogue:
+#     # Text
+#     "Should I?"
+#     menu:
+#         "Invite Mia to hang out outside school":
+#             $ mia_outside == True
+#             $ mia_affection += 1
+#         "Leave her alone":
+#             jump game_Stop_temp
 
 
-label ending_evaluation:
+# label james_after_school_dialogue:
+#     # Text
+#     "Should I?"
+#     menu:
+#         "Invite James to hang out outside school":
+#             $ james_outside == True
+#             $ james_affection += 1
+#         "Leave him alone":
+#             jump game_Stop_temp
+
+# label game_Stop_temp:
+#     return
+
+# label looping_evaluation:
+#     if escape_loop == True:
+#         jump ending_evaluation
+#     else:
+#         $ mia_affection = 0
+#         $ mia_make_up = 0
+#         $ james_affection = 0
+#         $ james_make_up = 0
+#         $ mia_dislike = -3
+#         $ james_dislike = -3
+#         jump main_game
+
+
+# label ending_evaluation:

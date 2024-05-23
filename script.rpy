@@ -233,28 +233,95 @@ label main_game:
     b "Hey Mia!"
     b "Why haven't you responded to my text messages?"
     a "Oh you wanna know why?"
-    a "Well it's cause of what you did!"
+    a "Well it's because of what you did!"
     "Oh boy they're arguing again."
     menu:
         "Step into their argument":
             $ mia_affection -= 1
             $ james_affection += 1
 
-    m "They have already started arguing but it's just background noise to me now."
-    menu:
-        "Confront Mia and James":
-            $ mia_affection -= 1
-            $ james_affection += 1
-
             jump confrontation
 
-        "Ignore them":
-            $ mia_affection += 1
-            # Text goes here
+        "Leave them alone":
+            "I don't think I should get involved in their argument."
+            "It's going to stop later anyways."
+            "As they argue I think about how to get them to make-up."
+            "I could make them meet together somewhere and talk it out."
+            "But I have to convince them to meet up somewhere."
+            "Random classmate" "Guys! The teacher is coming!"
+            "Mia and James stop arguing with each other."
+            "Mia looks around and sees a lot of people staring at them."
+            "She sinks down to her chair trying to cover herself from the stares while 
+            James gives a sheepish look and sits down on his seat."
+            "Time to listen to the same class again."
             jump cafe
 
 label confrontation:
-    a "How would I know what I did if you won't tell me?"
+    b "How would I know what I did if you wouldn't tell me?"
+    a "Well do you wanna know?"
+    a "Is singing loudly in a mall a good idea when we're on a date together?"
+    a "My younger brother is more matur-"
+    m "Guys you should stop arguing with each other."
+    a "Go away, it's none of your business."
+    a "Look at what you've done! 
+    You've made someone else interfere in our problems!"
+    b "My fault? I'm sorry for being extremely loud, grabbing everyone's attention. 
+    Oh wait. That's you. And you're supposed to be the quiet one."
+    "Gotta love lover quarrels."
+    
+    # Minigame goes here
+
+    # If player suceeds in the minigame.
+    $ mia_affection += 1
+    $ james_affection += 1
+    $ mia_make_up += 1
+    $ james_make_up += 1
+
+    a "Can't you ever take responsibility for once! 
+    You juuust love to blame me for everything!"
+    m "Guys!"
+    "I raise my voice to catch their attention."
+    "It worked as they stopped arguing momentarily to look at me."
+    "Mia gives a sharp glare to me."
+    a "What is it?"
+    m "Please stop arguing."
+    m "Everybody in class is looking at you."
+    "They both take a look at their surroundings and 
+    see everyone in class staring at them."
+    "There's also people from other classes staring at them."
+    "I don't think they've noticed them though."
+    # Show Mia being embarrased
+    a "A: A-a..."
+    "Mia sinks to her seat looking extremely embarrassed."
+    "James looks around sheepishly before sitting down on his seat as well."
+    "It's better for it to happen now than later."
+    "I decide to head back to my seat while Mia is recovering from her embarrassment."
+    "Random classmate" "Guys! The teacher is coming!"
+    "Time to listen to the same class again."
+
+    # If the player fails
+    m "Guys, you should stop arg-"
+    "Mia glares at me, cutting me off."
+    a "Go away, it's none of your business."
+    a "Look at what you've done! You've made someone else interfere in our problems!"
+    b "My fault? I'm sorry for being extremely loud, grabbing everyone's attention.
+    Oh wait. That's you. And you're supposed to be the quiet one."
+    a "Can't you ever take responsibility for once!
+    You juuust love to blame me for everything!"
+    "{i}Sigh.{/i}"
+    "They aren't listening."
+    "There's no point in me interrupting them now."
+    "I head back to my seat while they still argue among themselves."
+    "I can try again when I loop back to today."
+    "Random classmate" "Guys! The teacher is coming!"
+    "Mia and James stop arguing with each other."
+    "Mia looks around and sees a lot of people staring at them."
+    "She sinks down to her chair trying to cover herself from the stares while 
+    James gives a sheepish look and sits down on his seat."
+    "Time to listen to the same class again."
+
+
+
     # Text goes here
 
     jump cafe

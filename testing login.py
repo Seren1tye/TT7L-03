@@ -78,7 +78,7 @@ def on_leave(e):
     if name=='':
         user.insert(0, 'Username')
 
-user = Entry(frame,width=25, fg='black',border=0, bg='white',font=('Microsoft YahHei UI Light',11))
+user = Entry(frame,width=25, fg='black',border=0, bg='white',highlightthickness=0, font=('Microsoft YahHei UI Light',11))
 user.place(x=30, y=80)
 user.insert(0,'Username')
 user.bind('<FocusIn>',on_enter)
@@ -96,7 +96,7 @@ def on_leave(e):
     if pw=='':
         password.insert(0, 'Password')
 
-password = Entry(frame,width=25, fg='black',border=0, bg='white',font=('Microsoft YahHei UI Light',11))
+password = Entry(frame,width=25, fg='black',border=0, bg='white', highlightthickness=0,font=('Microsoft YahHei UI Light',11))
 password.place(x=30, y=150)
 password.insert(0,'Password')
 password.bind('<FocusIn>',on_enter)

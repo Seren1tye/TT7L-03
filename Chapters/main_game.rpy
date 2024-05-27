@@ -162,4 +162,5 @@ label failure1:
 
 
 label cafe:
+    jump ending_chooser
     return

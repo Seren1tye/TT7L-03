@@ -1610,3 +1610,29 @@ style slider_slider:
     variant "small"
     xsize 900
 
+screen endings():
+    tag menu
+    use game_menu(("Endings"), scroll = "viewport"):
+        vbox:
+            if persistent.best_end:
+                text ("Best Ending")
+        
+            if persistent.mia_end:
+                text ("Mia's Ending")
+            else:
+                text ("Obtain this ending first.")
+
+            if persistent.james_end:
+                text ("James's Ending")
+            else:
+                text ("Obtain this ending first.")
+
+            if persistent.bad_end:
+                text ("Bad Ending")
+            else:
+                text ("Obtain this ending first.")
+
+            if persistent.secret_end:
+                text ("Secret Ending")
+            else:
+                text ("Obtain this ending first.")

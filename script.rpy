@@ -15,23 +15,6 @@ define b = Character("James")
 # default persistent.secret_end = False
 # default persistent.end_got = False
 
-# List for obtainable endings
-define persistent.ends = [
-    {"name": "Best Ending", "desc": "Mia and James made up and their relationship is going better than ever.", 
-    "unlocked": False},
-    {"name": "Mia Ending", "desc": "Mia broke up with James but it looks like she's eyeing on someone else.", 
-    "unlocked": False},
-    {"name": "James Ending", "desc": "James broke up with Mia and decided to pursue a relationship with you instead.", 
-    "unlocked": False},
-    {"name": "James Ending", "desc": "James broke up with Mia and decided to pursue a relationship with you instead.", 
-    "unlocked": False},
-    {"name": "Bad Ending", "desc": "James broke up with Mia and decided to pursue a relationship with you instead.", 
-    "unlocked": False}, 
-    {"name": "Secret Ending", "desc": "You looped one too many times and you lost your mind.", 
-    "unlocked": False}
-    
-]
-
 # Variables used in the game.
 default approach = False
 default mia_affection = -1 # Temp value
@@ -57,17 +40,20 @@ label main_game:
 label ending_chooser:
     m "Choose an ending."
     menu:
+        "Best Ending" if persistent.mia_end and persistent.james_end:
+                $ persistent.best_end = True 
+
         "Mia's Ending":
-            $ persistent.ends[1]["unlocked"] = True
+            $ persistent.mia_end = True
             return
         "James's Ending":
-            $ persistent.ends[2]["unlocked"] = True
+            $ persistent.james_end = True
             return
         "Bad Ending":
-            $ persistent.ends[3]["unlocked"] = True
+            $ persistent.bad_end = True
             return
         "Secret Ending":
-            $ persistent.ends[4]["unlocked"] = True
+            $ persistent.secret_end = True
             return
 
 # label cafe:

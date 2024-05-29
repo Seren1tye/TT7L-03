@@ -1618,9 +1618,11 @@ screen endings():
                 text ("Best Ending")
         
             if persistent.mia_end:
-                text ("Mia's Ending")
+                image 'mia_ver0' at center
+                #text ("Mia's Ending")
             else:
-                text ("Obtain this ending first.")
+                image ('questionmark.jpg')
+                #text ("Obtain this ending first.")
 
             if persistent.james_end:
                 text ("James's Ending")

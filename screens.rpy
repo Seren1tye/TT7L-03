@@ -1613,8 +1613,7 @@ style slider_slider:
 screen endings():
     tag menu
     use game_menu(("Endings"), scroll = "viewport"):
-        #add gui.ending_menu_background
-        gui.main_menu_background == "gui/ending_menu.png"
+        add gui.ending_menu_background
         vbox:
             spacing 50
             if persistent.best_end:

@@ -1613,6 +1613,8 @@ style slider_slider:
 screen endings():
     tag menu
     use game_menu(("Endings"), scroll = "viewport"):
+        #add gui.ending_menu_background
+        gui.main_menu_background == "gui/ending_menu.png"
         vbox:
             spacing 50
             if persistent.best_end:
@@ -1647,16 +1649,3 @@ screen endings():
             else:
                 image ('questionmark.jpg')
                 #text ("Obtain this ending first.")
-
-
-    $ tooltip = GetTooltip()
-
-    if tooltip:
-
-        nearrect:
-            focus "tooltip"
-            prefer_top True
-
-            frame:
-                xalign 0.5
-                text tooltip

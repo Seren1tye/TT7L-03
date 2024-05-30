@@ -1614,27 +1614,49 @@ screen endings():
     tag menu
     use game_menu(("Endings"), scroll = "viewport"):
         vbox:
+            spacing 50
             if persistent.best_end:
                 text ("Best Ending")
+                tooltip "A"
+                image 'best_end'
         
             if persistent.mia_end:
-                image 'mia_ver0' at center
-                #text ("Mia's Ending")
+                text ("Mia's Ending")
+                image 'mia_ver0'
+            else:
+                image ('questionmark.jpg')
+                text ("Obtain this ending first.")
+
+            if persistent.james_end:
+                text ("James's Ending")
+                image 'james_ver0'
             else:
                 image ('questionmark.jpg')
                 #text ("Obtain this ending first.")
 
-            if persistent.james_end:
-                text ("James's Ending")
-            else:
-                text ("Obtain this ending first.")
-
             if persistent.bad_end:
                 text ("Bad Ending")
+                image 'bad_end'
             else:
-                text ("Obtain this ending first.")
+                image ('questionmark.jpg')
+                #text ("Obtain this ending first.")
 
             if persistent.secret_end:
                 text ("Secret Ending")
+                image 'secret_end'
             else:
-                text ("Obtain this ending first.")
+                image ('questionmark.jpg')
+                #text ("Obtain this ending first.")
+
+
+    $ tooltip = GetTooltip()
+
+    if tooltip:
+
+        nearrect:
+            focus "tooltip"
+            prefer_top True
+
+            frame:
+                xalign 0.5
+                text tooltip

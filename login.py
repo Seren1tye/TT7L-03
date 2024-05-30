@@ -2,42 +2,45 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
-import itertools
-import sys
+import pygame
+import openpyxl 
+import pandas as pd
+import pygame
 
-class AnimatedGIF(tk.Label):
-    def __init__(self, master, path, delay=100):
-        self._master = master
-        self._delay = delay
 
-        im = Image.open(path)
-        self._frames = []
-        try:
-            for i in itertools.count(1):
-                self._frames.append(ImageTk.PhotoImage(im.copy().convert('RGBA')))
-                im.seek(i)
-        except EOFError:
-            pass
 
-        self._frame_index = 0
-        self._num_frames = len(self._frames)
 
-        super().__init__(master, image=self._frames[0])
-        self._animate()
-
-    def _animate(self):
-        self._frame_index = (self._frame_index + 1) % self._num_frames
-        self.config(image=self._frames[self._frame_index])
-        self._master.after(self._delay, self._animate)
- 
        
 root = tk.Tk()
+bg=ImageTk.PhotoImage(file='timetravel.png')
+bg_image=Label(root,image=bg).place(x=0,y=0, relwidth=1,relheight=1)
 root.state('zoomed')
 root.geometry('935x500+300+200')
 root.configure(bg='#fff')
 root.resizable(False,False)
-gif_label = AnimatedGIF(root, "Undefined - Imgur.gif", 100)
-gif_label.pack(expand=True, fill='both')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def signin():
     username=user.get()
@@ -106,12 +109,13 @@ Frame(frame,width=295,height=2,bg='black').place(x=25,y=177)
 
 ##############################################################################################################
 
-Button(frame,width=39,pady=7,text='Sign in',bg='#57a1f8',fg='white',border=0, command=signin).place(x=35,y=204)
+signinbut=Button(frame,width=23,pady=7,text='Sign in',bg='#57a1f8',fg='white',border=0,highlightthickness=0, command=signin)
+signinbut.place(x=35,y=204)
 
 Label=Label(frame,text="Don't have an account?",fg='black',bg='white',font=('Microsoft YaHei UI Light',9))
 Label.place(x=75,y=270)
 
-signup= Button(frame,width=6,text='Sign up',border= 0,bg='white',cursor='hand2',fg='#57a1f8')
+signup= Button(frame,width=6,text='Sign up',border= 0,bg='white',cursor='hand2',fg='#57a1f8',highlightthickness=0,)
 signup.place(x=215,y=270)
 
 

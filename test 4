@@ -1,21 +1,251 @@
-from tkinter import*
 import tkinter as tk
-from tkinter import messagebox
-from PIL import ImageTk
-import ast
-
-root =tk.Tk()
-bg=ImageTk.PhotoImage(file='timetravel.png')
-bg_image=Label(root,image=bg).place(x=0,y=0, relwidth=1,relheight=1)
-root.state('zoomed')
-root.geometry('935x500+300+200')
-root.configure(bg='#fff')
-root.resizable(False,False)
-
-frame=Frame(width=350,height=390,bg='#fff')
-frame.place(x=480,y=50)
+from tkinter import ttk, messagebox
+from PIL import Image, ImageTk
+import openpyxl 
+import pandas as pd
+import pygame
 
 
-heading=Label(frame,text='Sign up',fg='#57a1f8, bg='white',font=('Microsoft Yahei UI Light',23,'bold'))
+
+def start_game():
+    newgame_button.pack_forget()
+    start_game_button.pack_forget()
+    exit_button.pack_forget()
+
+    label_loginuser.pack()
+
+    label_name.pack()
+    entry_name.pack()
+    label_error_name.pack()
+
+
+    label_id.pack()
+    entry_id.pack()
+    label_error_id.pack()
+
+
+
+    button_submit.pack()
+
+
+    
+
+def new_game():
+    newgame_button.pack_forget()
+    start_game_button.pack_forget()
+    exit_button.pack_forget()
+
+    label_newuser.pack()
+
+    label_name.pack()
+    entry_name.pack()
+    label_error_name.pack()
+
+
+    label_id.pack()
+    entry_id.pack()
+    label_error_id.pack()
+
+    label_age.pack()
+    entry_age.pack()
+    label_error_age.pack()
+
+    label_gender.pack()
+    combo_gender.pack()
+
+
+    button_submit.pack()
+
+
+def pygame_init_game():
+    pygame.init()
+    ###############
+    pygame.quit()
+
+
+def exit_game():
+    response = messagebox.askyesno("", "Are you sure you want to exit the game?")
+    if response:
+        root.destroy()
+
+
+def get_user_name():
+    user_name = entry_name.get()
+    if len(user_name) > 10:
+        label_error_name.config(text="*Please enter a name less than 10 characters.", fg="red", font=("Times New Roman", 15))
+        return get_user_name()
+    elif user_name == "":
+        label_error_name.config(text="*Please enter a name.", fg="red", font=("Times New Roman", 15))
+        return get_user_name()
+    else:
+        label_error_name.config(text="")
+        return user_name
+    
+def get_user_id():
+    user_id = entry_id.get()
+    if user_id == "":
+        label_error_id.config(text="*Please enter your password.", fg="red", font=("Times New Roman", 15))
+        return get_user_id()
+    elif len(user_id) > 10 :
+        label_error_id.config(text = "*Please enter your password less than 10", fg="red", font=("Times New Roman", 15))
+        return get_user_id()
+    else:
+        label_error_id.config(text="")
+        return user_id
+    
+def get_user_age():
+    user_age = entry_age.get()
+    if user_age.isdigit() == False:
+        label_error_age.config(text="*Please  enter a number.", fg="red", font=("Times New Roman", 15))
+        return get_user_age()
+    elif user_age == "":
+        label_error_id.config(text="*Please enter your age.", fg="red", font=("Times New Roman", 15))
+        return get_user_age()
+    elif int(user_age) < 1 or int(user_age) > 100:
+        label_error_id.config(text="*Please enter a valid number.", fg="red", font=("Times New Roman", 15))
+        return get_user_age()
+    else:
+        label_error_id.config(text="")
+        return int(entry_age.get())
+
+def get_user_gender():
+    user_gender = combo_gender.get()
+    if user_gender == "":
+        return get_user_gender
+    else:
+        return user_gender
+
+
+def save_user_profile():
+    user_name = get_user_name()
+    user_id = get_user_id()
+    user_gender = get_user_gender()
+    user_age = get_user_age()
+
+    user_profile = openpyxl.load_workbook("userprofile.xlsx")
+    profile_sheet = user_profile.active
+
+    profile_sheet[f'A{profile_sheet.max_row+1 }'] = user_id
+    profile_sheet[f'B{profile_sheet.max_row }'] = user_name
+    profile_sheet[f'C{profile_sheet.max_row}'] = user_age
+    profile_sheet[f'D{profile_sheet.max_row}'] = user_gender
+
+    user_profile.save("userprofile.xlsx")
+    return pygame_init_game()
+
+
+def custom_message_box(title,message):
+    top = tk.Toplevel(root)
+    title = ("")
+    top.title(title)
+    top.attributes("-fullscreen", True)
+
+    background_image = Image.open("background2.jpg")
+    background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()))
+    background_photo = ImageTk.PhotoImage(background_image)
+    
+    canvas = tk.Canvas(top, width=root.winfo_screenwidth(), height=root.winfo_screenheight())
+    canvas.pack(fill="both", expand=True)
+    canvas.create_image(0, 0, anchor="nw", image=background_photo)
+    canvas.image = background_photo  
+
+    label = tk.Label(canvas, text=message, font=("Helvetica", 30), bg="black")
+    label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+def check_user_profile(id,name):
+    df = pd.read_excel("userprofile.xlsx")
+    id = get_user_id()
+    name = get_user_name()
+
+    
+    if id is not None and name is not None:
+        if (df['USERID'] == id).any() and (df['USER NAME'] == name).any():
+            user_info = df[(df['USERID'] == id) & (df['USER NAME'] == name)]
+            messagebox.showinfo("User Info", user_info.to_string(index=False))
+        else:
+            start_game()
+
+
+
+root = tk.Tk()
+root.title("")
+root.attributes('-fullscreen', True)
+
+image_path = "timetravel.png"
+image = Image.open(image_path)
+
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+image = image.resize((screen_width, screen_height))
+image_width, image_height = image.size
+aspect_ratio = image_width / image_height
+
+if screen_width / screen_height > aspect_ratio:
+    new_width = int(screen_height * aspect_ratio)
+    new_height = screen_height
+else:
+    new_width = screen_width
+    new_height = int(screen_width / aspect_ratio)
+
+image = image.resize((new_width, new_height))
+photo = ImageTk.PhotoImage(image)
+
+canvas = tk.Canvas(root, width=screen_width, height=screen_height)
+canvas.pack()
+
+canvas.create_image(screen_width // 2, screen_height // 2, image=photo, anchor=tk.CENTER)
+
+
+
+image_x = screen_width // 2
+image_y = 0 
+
+
+menu = tk.Frame(root, bg="white")
+menu.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+newgame_button = tk.Button(menu, text="New Game", command=new_game, bg="white", fg="black")
+newgame_button.config(font=("microsoft yahei ui light", 18))
+newgame_button.pack(pady=10)
+
+start_game_button = tk.Button (menu, text="Start Game", command=start_game, bg="white", fg="black")
+start_game_button.config(font=("Times New Roman", 18))
+start_game_button.pack(pady=10)
+
+exit_button = tk.Button(menu, text="Exit", command=exit_game, bg="white", fg="black")
+exit_button.config(font=("Times New Roman ", 18))
+exit_button.pack(pady=10)
+
+label_title = tk.Label(menu, text="A-TALE-OF-A-KNIGHT", fg="black", bg="white", font=("Times New Roman", 25))
+
+label_newuser = tk.Label(menu, text="New User Register ", fg="black", bg="white", font=("Times New Roman", 18))
+label_loginuser = tk.Label(menu, text="User Login", fg="black", bg="white", font=("Times New Roman", 18))
+
+
+label_name = tk.Label(menu, text="What is your character's name?", fg="white", bg="black", font=("Times New Roman", 18))
+label_id = tk.Label(menu, text="What is your password", fg="white", bg="black", font=("Times New Roman", 18))
+label_gender = tk.Label(menu, text="What is your gender?", fg="white", bg="black", font=("Times New Roman", 18))
+label_age = tk.Label(menu, text="What is your age", fg="white", bg="black", font=("Times New Roman", 18))
+
+
+entry_name = tk.Entry(menu)
+entry_id = tk.Entry(menu)
+entry_age = tk.Entry(menu)
+entry_username = tk.Entry(menu)
+entry_userid = tk.Entry(menu)
+
+combo_gender = ttk.Combobox(menu, values=["Male", "Female"], state="readonly")
+
+label_error_name = tk.Label(menu, text="", fg="red", bg="black")
+label_error_id = tk.Label(menu, text="", fg="red", bg="black")
+label_error_age = tk.Label(menu, text="", fg="red", bg="black")
+label_error_username = tk.Label(menu, text="", fg="red", bg="black")
+label_error_userid = tk.Label(menu, text="", fg="red", bg="black")
+
+
+button_submit = tk.Button(menu, text="Done", command=save_user_profile, fg="black", bg="white", font=("Times New Roman", 18))
+done_submit = tk.Button(menu, text="Done", command=check_user_profile, fg="black", bg="white", font=("Times New Roman", 18))
+
 
 root.mainloop()

@@ -1648,3 +1648,11 @@ screen endings():
             else:
                 image ('questionmark.jpg')
                 #text ("Obtain this ending first.")
+
+screen data_display(summary):
+    frame:
+        has vbox
+
+        label "Data Summary:"
+
+        text summary

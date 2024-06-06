@@ -28,10 +28,18 @@ default mia_outside = False
 default james_outside = False
 default loops = -1
 
+init python:
+    import data_processing
+
+    # Load the data when the game starts
+    df = data_processing.load_data("game/data.csv")
+    summary = data_processing.get_data_summary(df)
+
 
 # The game starts here.
 
 label start:
+    show screen data_display(summary_str)
     jump prologue
 
 label main_game:

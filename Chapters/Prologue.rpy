@@ -13,6 +13,9 @@ m "Oh no! I'm late for school!"
 "I quickly get out of bed and scramble to get ready for school."
 
 # Classroom bg
+scene bg classroom
+
+
 # Bell sfx
 m "{i}Phew{/i}"
 "I audibly sigh as I manage to make it to school in time."

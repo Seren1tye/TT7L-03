@@ -45,15 +45,19 @@ label ending_chooser:
 
         "Mia's Ending":
             $ persistent.mia_end = True
+            $ persistent.end = True
             return
         "James's Ending":
             $ persistent.james_end = True
+            $ persistent.end = True
             return
         "Bad Ending":
             $ persistent.bad_end = True
+            $ persistent.end = True
             return
         "Secret Ending":
             $ persistent.secret_end = True
+            $ persistent.end = True
             return
 
 # label cafe:

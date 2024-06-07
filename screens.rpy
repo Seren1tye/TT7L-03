@@ -298,7 +298,8 @@ screen navigation():
         if main_menu:
 
             textbutton _("Start") action Start()
-            textbutton _("Endings") action ShowMenu("endings")
+            if persistent.end:
+                textbutton _("Endings") action ShowMenu("endings")
 
         else:
 
@@ -1613,7 +1614,6 @@ style slider_slider:
 screen endings():
     tag menu
     use game_menu(("Endings"), scroll = "viewport"):
-        add gui.ending_menu_background
         vbox:
             spacing 50
             if persistent.best_end:
@@ -1626,7 +1626,7 @@ screen endings():
                 image 'mia_ver0'
             else:
                 image ('questionmark.jpg')
-                text ("Obtain this ending first.")
+                #text ("Obtain this ending first.")
 
             if persistent.james_end:
                 text ("James's Ending")

@@ -27,6 +27,11 @@ default james_cafe = False
 default mia_outside = False
 default james_outside = False
 default loops = -1
+default confront = False
+default leave_alone = False
+default breakup = False
+default making_up = False
+
 
 
 # The game starts here.

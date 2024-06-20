@@ -9,7 +9,7 @@ label cafeteria:
     $ food = renpy.random.choice(['sandwich', 'wrap', 'packet of nuggets', 'packet of fries'])
     "I head to the stalls and order a [food] from the western stall."
     "I'm not really that hungry to eat something heavier."
-    "I head towards the cafeteria tables and I could hear the ever-so familiar argument by none other than the star couple."
+    "As I headed towards the cafeteria tables, I could hear the ever-so familiar argument by none other than the star couple."
     a "Why are you so insufferable? I asked you a simple question and you decide to twist it into fourteen different ones."
     b "How is it my fault? You're the one who can't word it simply. Always using words that confuse me and then blame me when I don't understand what you meant in the first place."
     a "Can't you just take responsibility for once. You juuust love to blame me for everything in your life!"
@@ -18,18 +18,18 @@ label cafeteria:
     menu:
         "Where should I sit?"
         "Sit at the table near Mia and James":
-            # Mia affection increases
+            # mia affection increases
+            $ mia_cafe = True
             jump cafe_table
         "Go to a quiet corner":
-            #block of code to run
             jump corner
         "Wander around the school":
+            # james affection increases
             jump wander
         
 
 label cafe_table:
-    $ mia_cafe = True
-    "I decide to sit 4 tables away from them."
+    "I decided to sit 4 tables away from them."
     "Mia approaches me whenever I sit here."
     "I tuned out to their argument, it became white noise a while ago."
     "As I was busy eating my [food] I felt someone tapping on my shoulder."
@@ -42,6 +42,7 @@ label cafe_table:
     "Technically we talked like this somewhat recently but I stayed silent."
     "In her perspective we don't really talk all too often while I've seen her talk about this issue a few times at this point."
     if confront == True:
+        # mia affection increases
         a "I'm sorry about lashing out earlier."
         a "I was so caught in the moment that I accidentally yelled at you."
         m "It's fine no offence taken."
@@ -60,7 +61,7 @@ label cafe_table:
         "Have you considered making up with him?":
             $ making_up = True
             # mia affection increases
-            # mia make up increases
+            # mia makes up increases
             a "...."
             a "Yes, I have...."
             a "But I don't...."
@@ -115,7 +116,7 @@ label cafe_table:
 
 
 label corner:
-    "I decide to go somewhere more quieter."
+    "I decided to go somewhere quieter."
     "I find a relatively quiet corner and sit down there."
     "There's only 3 students around and they're a few tables away from where I'm sitting."
     "Recess did just start recently so the cafeteria isn't crowded yet."
@@ -132,7 +133,7 @@ label corner:
     jump after_school
 
 label wander:
-    "I decide to wander around the school compound."
+    "I decided to wander around the school compound."
     "Well wherever that I can wander during recess time."
     "There isn't much space to wander around anyways."
     "I don't want the school prefects to report me on trespassing to Miss Low."
@@ -189,6 +190,7 @@ label wander:
 
     menu:
         "I literally heard you say it out loud.":
+            # james affection increases
             $ james_cafe = True
             b "Damn it."
             b "Well ya got me. We have relationship issues. That's what you wanted to know right? Well there ya go."
@@ -200,9 +202,9 @@ label wander:
             b "What makes me think I can trust you with this? You won't tell Mia won't you?"
             m "Why will I ever need to tell her this?"
             b "Because....I don't know you're friends. Don't friends tell each other everything in their lives or whatever is it you girls do?"
-            m "Again, you're thinking too highly of our friendship. We aren't even that close compared to last time. You really need to learn more on how friendships work."
+            m "Again, you’re thinking too highly of our friendship. We aren’t even that close nowadays. You should learn more about friendships."
             b "Says the one who usually sits alone every time."
-            "This guy really gets on my nerves."
+            "Fair point but this guy really gets on my nerves."
             m "At least I'm not-"
             # bell sfx
             b "Well looks like recess is over. See ya wouldn't wanna be ya!"

@@ -1,4 +1,5 @@
-﻿# The script of the game goes in this file.
+﻿
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -32,14 +33,37 @@ default leave_alone = False
 default breakup = False
 default making_up = False
 
+# Defining images
+image a1 = "Mia 1.png"
+image a2 = "Mia 2.png"
+image a3 = "Mia 3.png"
+image a4 = "Mia 4.png"
+image a5 = "Mia 5.png"
+image a6 = "Mia 6.png"
+image a7 = "Mia 7.png"
+image a8 = "Mia 8.png"
+image a9 = "Mia 9.png"
+image a10 = "Mia A.png"
+image a11 = "Mia B.png"
 
+image b1 = "James 1.png"
+image b2 = "James 2.png"
+image b3 = "James 3.png"
+image b4 = "James 4.png"
+image b5 = "James 5.png"
+image b6 = "James 6.png"
+image b7 = "James 7.png"
+image b8 = "James 8.png"
 
+image school = "bg school.jpg"
+image room = "room.png"
+image school out = "school_out.jpg"
 # The game starts here.
 
 label start:
     jump prologue
 
-label main_game:
+
 
 # Dev ending chooser for testing
 label ending_chooser:

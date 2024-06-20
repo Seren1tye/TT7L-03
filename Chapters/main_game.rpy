@@ -1,4 +1,5 @@
 label main_game0:
+    scene room
     "As I lie in bed, I begin to ponder over what has been happening these past few days."
     "Days? Or Day? I don't know how to describe this."
     "What is going on?"
@@ -17,10 +18,16 @@ label main_game0:
     "That's a stupid thought."
     "However the reason I'm in a time loop may be because of those two."
     # Show Mia and James on the screen
+    show a1 with easeinleft:
+        xpos 0.25 ypos 0.3
+    show b3 with easeinright:
+        xpos 0.55 ypos 0.2
     "Mia and James."
     "I have a feeling that I'm stuck in this loop because of those two."
     "I have a feeling that the only way I can escape this time loop is if I help them with their relationship, no matter what."
     "Maybe I'll have to break them up or bring them together, who knows what works, I just gotta hope that I don't lose my mind in the process."
+    hide a1 with dissolve
+    hide b3 with dissolve
     "It's been about 10 times since I've relived the same day over and over again."
     "I grab my phone on the bedside to check the time."
     "23:57"
@@ -38,14 +45,15 @@ label main_gameplay:
     # Alarm sfx
     # Stop alarm sfx
     # if 1st loop
-    "I rise up from my bed and stare at my phone."
+    scene room with Fade(1.0,0.5,1.0)
+    "I rise up from my bed and look towards my phone."
     "I stare at my phone and as if on cue, my alarm starts to ring."
+    # alarm sfx
     "It's time to try out my theory."
     "If they stop arguing then I can move on to the next day."
     "I don't even know how many times I've done this routine."
     "I hope I don't ever lose track of myself."
     "I get out of my bed to turn off my alarm and head to the toilet to prepare for school."
-    "The splash of cold water hits my skin as I think about what to do."
 
     # after 1st loop
     # "I rise up from my bed and stare at my phone."
@@ -55,17 +63,24 @@ label main_gameplay:
     # "The splash of cold water hits my skin as I think about what to do."
 
     #transition
-    # Class bgm
+    scene school with Fade(1.0,1.0,1.0)
     # Class bg
     "I stare at my classroom's entrance, waiting for the two celebrities to enter the classroom."
     "As my classmates slowly trickle in the classroom, I glance up to the clock hanging on the wall above the whiteboard."
     "It reads “7:12 am”."
     "In about a minute Mia and her posse would come in from another class and gather near the whiteboard to gossip."
     "And James will enter soon and argue with Mia when he locks eyes with her."
-    "I see Mia and her posse enter the class and gather at the blackboard."
+    "As I lounge around on my chair, I see Mia and her posse enter the class and gather at the blackboard."
+    show a2:
+        xpos 0.55 ypos 0.2
+        xzoom 1.5 yzoom 1.5
     "Girl A" "OMG Mia! You should tell us!"
-    "Sarah" "Yeah we're starving for tea over here! Tell us what happened!!"
+    # "Sarah" "Yeah we're starving for tea over here! Tell us what happened!!"
     "Girl C" "Girl you can't just argue with your boyfriend and NOT expect us to ask."
+    hide a2
+    show a1:
+        xpos 0.53 ypos 0.21
+        xzoom 1.5 yzoom 1.5
     "Mia swatted her friends away like they're annoying flies but it's proven to be ineffective as they swarm her again."
     a "Oh my god it's none of your business."
     "I tune out from their conversation. It becomes boring to listen to after hearing it after the fourth time."
@@ -83,15 +98,15 @@ label main_gameplay:
     menu:
         "What should I do?"
         "Step into to break their fighting":
-            # Mia affection increases
-            # James affection increases
-            # James makes up increases
+            # mia affection increases
+            # james affection increases
+            # james make u p increases
             jump confrontation
 
         "Leave them alone":
             $ leave_alone = True
-            # Mia affection increases
-            # Mia makes up increases
+            # mia affection increases
+            # mia make up increases
             "I decide to leave the two lovebirds alone."
             "Their argument will come to a halt soon and continue at the cafeteria later anyways."
             "Love knows no bounds I guess."
@@ -130,7 +145,7 @@ label confrontation:
     a "Obviously! That was the worst date I've EVER been on!"
     b "Oh come on it wasn't that bad-"
     m "Guys!"
-    "I raise my voice to catch their attention and it worked."
+    "I raised my voice to catch their attention and it worked."
     "Mia and James turn around to look at me."
     m "You should stop arguing before the teacher catches you."
     "Class is going to start soon after all."

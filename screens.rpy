@@ -1633,18 +1633,17 @@ screen endings():
                 image 'james_ver0'
             else:
                 image ('questionmark.jpg')
-                #text ("Obtain this ending first.")
+
 
             if persistent.bad_end:
                 text ("Bad Ending")
                 image 'bad_end'
             else:
                 image ('questionmark.jpg')
-                #text ("Obtain this ending first.")
+
 
             if persistent.secret_end:
                 text ("Secret Ending")
                 image 'secret_end'
             else:
                 image ('questionmark.jpg')
-                #text ("Obtain this ending first.")

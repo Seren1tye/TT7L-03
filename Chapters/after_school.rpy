@@ -1,12 +1,11 @@
 label after_school:
-    # classroom bg
+    scene school with Fade(1.0,1.0,1.0)
     "Finally school is over for the day."
     "Until I wake up again and relive this day again."
     "I really need to find a way to escape this loop."
     "I don't want to relive this day over and over again."
     "I pack up my belongings and head out to the school exit."
-    # transition
-    # outside school bg
+    scene schoolout with Fade(1.0,1.0,1.0)
     "I find a shaded area and stay under it for a while."
     "I want to talk to either James or Mia to try to fix their relationship."
     "After what seems like an eternity, Mia comes out from the entrance."

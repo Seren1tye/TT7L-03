@@ -150,6 +150,6 @@
 
 
 label prologue:
-    bg school_out
-    "WIP"
+    scene park
+    "To be inserted"
     jump main_game0

@@ -86,9 +86,27 @@ label main_gameplay:
     "I tune out from their conversation. It becomes boring to listen to after hearing it after the fourth time."
     "Their gossip session comes to a halt after a strong voice cuts through the class."
     b "Mia!"
+    hide a1
+    show a11:
+        xpos 0.55 ypos 0.21
+        xzoom 1.5 yzoom 1.5
+    show b2 at left:
+        xpos 0.05 ypos 1.1
+        xzoom 0.85 yzoom 0.85
     "James steps inside the classroom and glares at Mia."
+    show b2 at left with ComposeTransition(dissolve, before=moveoutleft , after=moveinright):
+        xpos 0.2 ypos 1.1
+        xzoom 1.25 yzoom 1.25
     "His friends who have been talking with him stare at Mia from the entrance."
+    hide b2
+    show b1 at left:
+        xpos 0.2 ypos 1.1
+        xzoom 1.25 yzoom 1.25
     b "Why haven't you returned my texts and calls?"
+    hide a11
+    show a1:
+        xpos 0.55 ypos 0.21
+        xzoom 1.5 yzoom 1.5
     a "You know what you did in the first place!"
     b "Well how would I know when you wont even tell me?"
     "Once again they've started to argue in front of the whole class."
@@ -104,6 +122,7 @@ label main_gameplay:
             jump confrontation
 
         "Leave them alone":
+            scene school with fade
             $ leave_alone = True
             # mia affection increases
             # mia make up increases
@@ -139,12 +158,36 @@ label confrontation:
     "Begrudgingly, I decide to approach them to break up their fighting."
     "I push past some of my classmates as I approach the arguing couple."
     m "Hey you two should stop arguing."
+    hide a1
+    show a2:
+        xpos 0.57 ypos 0.2
+        xzoom 1.5 yzoom 1.5
+    hide b1
+    show b3 at left:
+        xpos 0.2 ypos 1.1
+        xzoom 1.25 yzoom 1.25
     "Mia shoots me a glare."
     a "Stay out of this will you."
+    hide b3
+    show b1 at left:
+        xpos 0.2 ypos 1.1
+        xzoom 1.25 yzoom 1.25
     b "What did I even do? Is it because of our last date?"
+    hide a2
+    show a1:
+        xpos 0.55 ypos 0.21
+        xzoom 1.5 yzoom 1.5
     a "Obviously! That was the worst date I've EVER been on!"
     b "Oh come on it wasn't that bad-"
     m "Guys!"
+    hide a1
+    show a11:
+        xpos 0.55 ypos 0.21
+        xzoom 1.5 yzoom 1.5
+    hide b1
+    show b8 at left:
+        xpos 0.2 ypos 1.1
+        xzoom 1.25 yzoom 1.25
     "I raised my voice to catch their attention and it worked."
     "Mia and James turn around to look at me."
     m "You should stop arguing before the teacher catches you."
@@ -152,6 +195,8 @@ label confrontation:
     "They immediately stopped arguing. The threat of disciplinary action manages to scare them."
     "I don't blame them. Our chemistry teacher is the head of discipline and she doesn't tolerate their relationship during school times despite the principal's approval."
     "Random Classmate" "Guys! Miss Low is arriving!"
+    show a11 at offscreenright with easeinleft
+    show b8 at offscreenleft with easeoutright
     "Everybody immediately rushed back to their seats. Mia and James aren't the only ones who fear our teacher's wrath."
     "The students outside of our class who were listening to the argument are long gone."
     "As footsteps approach our class, I begin to prepare listening to classes I've heard a bunch of times already."

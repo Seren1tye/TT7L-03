@@ -57,7 +57,10 @@ image b8 = "James 8.png"
 
 image school = "bg school.jpg"
 image room = "room.png"
-image school out = "school_out.jpg"
+image schoolout = "school_out.jpg"
+image park = "park.jpg"
+image cafe = "cafe.png"
+image school2 = "jamescafe.jpg"
 # The game starts here.
 
 label start:

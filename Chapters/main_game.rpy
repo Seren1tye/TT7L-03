@@ -48,12 +48,14 @@ label main_gameplay:
     scene room with Fade(1.0,0.5,1.0)
     "I rise up from my bed and look towards my phone."
     "I stare at my phone and as if on cue, my alarm starts to ring."
-    # alarm sfx
+    play music "sfx_alarm.mp3"
     "It's time to try out my theory."
     "If they stop arguing then I can move on to the next day."
     "I don't even know how many times I've done this routine."
     "I hope I don't ever lose track of myself."
+    stop music
     "I get out of my bed to turn off my alarm and head to the toilet to prepare for school."
+    
 
     # after 1st loop
     # "I rise up from my bed and stare at my phone."
@@ -62,9 +64,9 @@ label main_gameplay:
     # "I get out of my bed to turn off my alarm and head to the toilet to prepare for school."
     # "The splash of cold water hits my skin as I think about what to do."
 
-    #transition
+    
     scene school with Fade(1.0,1.0,1.0)
-    # Class bg
+    play music "bgm_school.mp3" volume 0.75 fadein 0.5
     "I stare at my classroom's entrance, waiting for the two celebrities to enter the classroom."
     "As my classmates slowly trickle in the classroom, I glance up to the clock hanging on the wall above the whiteboard."
     "It reads “7:12 am”."
@@ -85,6 +87,7 @@ label main_gameplay:
     a "Oh my god it's none of your business."
     "I tune out from their conversation. It becomes boring to listen to after hearing it after the fourth time."
     "Their gossip session comes to a halt after a strong voice cuts through the class."
+    stop music fadeout 0.2
     b "Mia!"
     hide a1
     show a11:
@@ -98,6 +101,7 @@ label main_gameplay:
         xpos 0.2 ypos 1.1
         xzoom 1.25 yzoom 1.25
     "His friends who have been talking with him stare at Mia from the entrance."
+    play music "bgm_argue.mp3" fadein 0.5 volume 0.3
     hide b2
     show b1 at left:
         xpos 0.2 ypos 1.1
@@ -122,6 +126,8 @@ label main_gameplay:
             jump confrontation
 
         "Leave them alone":
+            stop music
+            play music "bgm_school.mp3" volume 0.75 fadein 0.5
             scene school with fade
             $ leave_alone = True
             # mia affection increases

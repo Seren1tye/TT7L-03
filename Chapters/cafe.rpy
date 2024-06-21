@@ -1,5 +1,6 @@
 label cafeteria:
     scene cafe with Fade(1.0, 1.0, 1.0)
+    play music "bgm_cafe.mp3" fadein 0.5 volume 0.75
     "It's time for recess."
     "Mia and James are going to argue soon."
     "There's no use trying to interrupt them then so I might as well wait until they finish arguing."
@@ -40,9 +41,11 @@ label cafe_table:
     "Mia approaches me whenever I sit here."
     "I tuned out to their argument, it became white noise a while ago."
     "As I was busy eating my [food] I felt someone tapping on my shoulder."
+    stop music fadeout 0.5
     show a8 at center with dissolve:
         ypos 1.015
     "It's Mia."
+    play music "bgm_mia.mp3" fadein 0.5 volume 0.75
     hide a8
     show a9 at center:
         xpos 0.4999 ypos 1.02

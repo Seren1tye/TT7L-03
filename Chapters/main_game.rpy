@@ -200,6 +200,7 @@ label confrontation:
     "Class is going to start soon after all."
     "They immediately stopped arguing. The threat of disciplinary action manages to scare them."
     "I don't blame them. Our chemistry teacher is the head of discipline and she doesn't tolerate their relationship during school times despite the principal's approval."
+    play audio "sfx_bell.mp3" volume 0.75
     "Random Classmate" "Guys! Miss Low is arriving!"
     show a11 at offscreenright with easeinleft
     show b8 at offscreenleft with easeoutright

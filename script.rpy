@@ -7,6 +7,7 @@
 define m = Character("Miku")
 define a = Character("Mia")
 define b = Character("James")
+define s = Character("Sarah")
 
 # Persistent values for the ending tracker (and best ending)
 # default persistent.mia_end = False
@@ -17,21 +18,16 @@ define b = Character("James")
 # default persistent.end_got = False
 
 # Variables used in the game.
-default approach = False
-default mia_affection = -1 # Temp value
-default mia_make_up = 0
-default james_affection = -1 # Temp value
-default james_make_up = 0
-default escape_loop = False
+default mia_affection = 0 
+default james_affection = 0 
+default make_up = 0
 default mia_cafe = False
 default james_cafe = False
-default mia_outside = False
-default james_outside = False
 default loops = -1
 default confront = False
-default leave_alone = False
 default breakup = False
-default making_up = False
+default best_end = 0
+default breaking_up = False
 
 # Defining images
 image a1 = "Mia 1.png"
@@ -66,6 +62,49 @@ image school2 = "jamescafe.jpg"
 label start:
     jump prologue
 
+label intermission:
+    scene room with Fade(0.5,0.3,0.5)
+    "I return back to my room."
+    "It's been quite a long day, hopefully this never-ending day finally comes to an end."
+    "I lie in bed staring at the ceiling, hoping for weariness to take me over."
+    jump loop_checker
+
+# For the Secret Ending
+label loop_checker:
+    if loops == 10: # If the game loops 10 time, it will unlock a secret ending
+        $ loops = 0
+        $ persistent.end = True
+        jump Secret_Ending
+    else:
+        jump ending_checker
+
+# Calculate the affection to jump into different ending
+label ending_checker:
+    if mia_affection < 3:
+        if james_affection < 3:
+            "Try again"
+            $ loops += 1
+            jump main_gameplay 
+        else:
+            "Try again"
+            $ loops += 1
+            jump main_gameplay #if Mia and James affection dint hit the requirement, the game will loop again
+    else: 
+        if mia_affection > james_affection:
+            $ persistent.mia_end = True
+            $ persistent.end = True
+            jump Mia_Ending # If Mia affection is higher than James, it jumps into Mia's Ending
+        else:
+            $ persistent.james_end = True
+            $ persistent.end = True
+            jump James_Ending # If James affection is higher than Mia, it jumps into James's Ending
+    if make_up == 3:
+        $ persistent.best_end = True
+        jump Best_Ending
+    
+    if breaking_up = True:
+        $ persistent.bad_end = True
+        $ persistent.end = True
 
 
 # Dev ending chooser for testing
@@ -91,99 +130,3 @@ label ending_chooser:
             $ persistent.secret_end = True
             $ persistent.end = True
             return
-
-# label cafe:
-#     menu :
-#         "Who should I meet now?"
-#         "Mia":
-#             $ mia_affection += 1
-#             $ mia_cafe = True
-#             jump mia_problem
-#         "James":
-#             $ james_affection += 1
-#             $ james_cafe = True
-#             jump james_problem
-        
-        
-# label mia_problem:
-#     a "Hi Miku."
-#     menu:
-#         a "You might be wondering about what happened to us."
-#         "Yes":
-#             $ mia_affection += 1
-#             a "Well here's the thing...."
-
-#             jump game_Stop_temp
-
-#             # Text
-
-
-
-#         "No":
-#             $ mia_affection -= 1
-#             a "Oh... I see...."
-#             a "Well why are you here then"
-
-#             jump game_Stop_temp
-
-# label james_problem:
-#     b "Oh Miku..."
-#     b "What brings you here?"
-
-# label after_school:
-#     "Who should I meet now?"
-#         "Mia":
-#             $ mia_affection += 1
-#             jump mia_after_school
-#         "James":
-#             $ james_affection += 1
-#             jump james_after_school
-
-# label mia_after_school:
-#     if mia_cafe == True:
-#         mia_affection += 2
-#     jump mia_after_school_dialogue
-
-# label james_after_school:
-#     if james_cafe == True:
-#         james_affection += 2
-#     jump james_after_school_dialogue
-
-# label mia_after_school_dialogue:
-#     # Text
-#     "Should I?"
-#     menu:
-#         "Invite Mia to hang out outside school":
-#             $ mia_outside == True
-#             $ mia_affection += 1
-#         "Leave her alone":
-#             jump game_Stop_temp
-
-
-# label james_after_school_dialogue:
-#     # Text
-#     "Should I?"
-#     menu:
-#         "Invite James to hang out outside school":
-#             $ james_outside == True
-#             $ james_affection += 1
-#         "Leave him alone":
-#             jump game_Stop_temp
-
-# label game_Stop_temp:
-#     return
-
-# label looping_evaluation:
-#     if escape_loop == True:
-#         jump ending_evaluation
-#     else:
-#         $ mia_affection = 0
-#         $ mia_make_up = 0
-#         $ james_affection = 0
-#         $ james_make_up = 0
-#         $ mia_dislike = -3
-#         $ james_dislike = -3
-#         jump main_game
-
-
-# label ending_evaluation:

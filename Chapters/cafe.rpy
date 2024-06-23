@@ -26,12 +26,14 @@ label cafeteria:
         "Where should I sit?"
         "Sit at the table near Mia and James":
             # mia affection increases
+            $ mia_affection += 1
             $ mia_cafe = True
             jump cafe_table
         "Go to a quiet corner":
             jump corner
         "Wander around the school":
             # james affection increases
+            $ james_affection += 1
             jump wander
         
 
@@ -61,6 +63,7 @@ label cafe_table:
     "In her perspective we don't really talk all too often while I've seen her talk about this issue a few times at this point."
     if confront == True:
         # mia affection increases
+        $ mia_affection += 1
         hide a9
         show a8 at center:
             xpos 0.507 ypos 1.02
@@ -103,7 +106,7 @@ label cafe_table:
         "Have you considered making up with him?":
             $ making_up = True
             # mia affection increases
-            # mia makes up increases
+            $ mia_affection += 1
             hide a9
             show a3 at center:
                 ypos 1.02
@@ -155,7 +158,7 @@ label cafe_table:
             jump after_school
         "Have you considered breaking up with him?":
             $ breakup = True
-            # mia affection increases
+            $ mia_affection += 1
             a "...."
             a "Wait what????"
             m "Well it's obvious that you both aren't made for each other."
@@ -184,17 +187,66 @@ label corner:
     "I find a relatively quiet corner and sit down there."
     "There's only 3 students around and they're a few tables away from where I'm sitting."
     "Recess did just start recently so the cafeteria isn't crowded yet."
-    "Maybe James will come here after he finishes arguing with Mia?"
-    "Come to think of it, I never saw where he went after they argued."
-    "I never really paid attention to where he went off too afterwards."
-    "As I ate my [food] in silence, people started to fill up the empty seats."
-    "I haven't seen either Mia or James head towards this corner."
-    # bell sfx
-    "Looks like recess is over."
-    "Neither James nor Mia came here."
-    "Looks like I have to find another spot to find either one of them."
-    "I head back towards the classroom so I won't be late to class."
-    jump after_school
+    if persistent.mia_end and persistent.james_end:
+        $ best_end += 1
+        "I should probably try to get Mia and James to both meet up sometime after school."
+        "It feels kinda familiar that I’ve met either James or Mia in the cafe."
+        "Usually I just meet either one of them and there’s that but I end up ignoring the one I didn’t talk to."
+        "I should try to meet them both at the same time. I know when they are available anyways."
+        "I headed out from the corner and went to a table that’s near where Mia and James are usually at."
+        "Mia is sitting at a few tables away, where she talks to me whenever I sit there while James is nowhere to be seen, presumably at the restroom."
+        "I headed over to where Mia is."
+        m "Hey Mia, how are you?"
+        a "Mi-miku? What are you doing here?"
+        m "Well I saw that you were arguing earlier and wanted to console you."
+        a "Well as you know James is very immature."
+        "Mia recounts her story again. This time I know what to do."
+        a "Yes, I have...."
+        a "But I don't...."
+        hide a3
+        show a6 at center:
+            xpos 0.5095 ypos 1.02
+            xzoom 1.25 yzoom 1.25
+        "Mia looks away."
+        a "Nevermind...."
+        m "Well it’s good to apologise."
+        a "Ugh why would I have to apologise? He’s the one who started this,not me."
+        m "Listen, it would mean the world to him if you apologised and listened to him."
+        a "Well how will that happen?"
+        m "I have my ways."
+        "I glance at the clock in the cafeteria."
+        "There’s not much time left, I have to meet James."
+        m "Excuse me Mia, I have something to do."
+        "I rush out to the cafeteria and headed to the men's restrooms."
+        "I see James staring off to the distance."
+        m "James!"
+        "This snapped James out of his trance."
+        b "Miku? What is it?"
+        m "What happened between you guys?"
+        b "Well why don't you ask Mia about that?"
+        "This time I should try to flatter him."
+        m "Well I did but she didn't say anything so I might as well ask someone who actually knows his stuff. "
+        "Oh uh. Yeah that's me alright. Yeah."
+        #school bell
+        "Damn it. I ran out of time."
+        b "I'll tell you later."
+        "James rushes off to class."
+        "I rush back to class in order to not be late."
+        jump after_school
+        
+    else:
+
+        "Maybe James will come here after he finishes arguing with Mia?"
+        "Come to think of it, I never saw where he went after they argued."
+        "I never really paid attention to where he went off too afterwards."
+        "As I ate my [food] in silence, people started to fill up the empty seats."
+        "I haven't seen either Mia or James head towards this corner."
+        # bell sfx
+        "Looks like recess is over."
+        "Neither James nor Mia came here."
+        "Looks like I have to find another spot to find either one of them."
+        "I head back towards the classroom so I won't be late to class."
+        jump after_school
 
 label wander:
     "I decided to wander around the school compound."
@@ -283,7 +335,7 @@ label wander:
 
     menu:
         "I literally heard you say it out loud.":
-            # james affection increases
+            $ james_affection += 1
             $ james_cafe = True
             hide b4
             show b6 at center:

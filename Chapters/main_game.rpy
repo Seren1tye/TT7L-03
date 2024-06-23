@@ -1,4 +1,5 @@
 label main_game0:
+    $ loops += 1
     scene room
     "As I lie in bed, I begin to ponder over what has been happening these past few days."
     "Days? Or Day? I don't know how to describe this."
@@ -40,8 +41,12 @@ label main_game0:
     jump main_gameplay
 
 label main_gameplay:
-    # game loops here
-    # Set this to play on the first gameplay loop
+    # Game loops here
+    # All variables get reset here.
+    $ mia_affection = 0
+    $ james_affection = 0
+    $ confront = False
+    $ breakup = False
     # Alarm sfx
     # Stop alarm sfx
     # if 1st loop
@@ -55,17 +60,10 @@ label main_gameplay:
     "I hope I don't ever lose track of myself."
     stop music
     "I get out of my bed to turn off my alarm and head to the toilet to prepare for school."
-    
 
-    # after 1st loop
-    # "I rise up from my bed and stare at my phone."
-    # "I stare at my phone and as if on cue, my alarm starts to ring."
-    # "{It's the {loop} time since I decided to help with Mia and James's relationship.}"
-    # "I get out of my bed to turn off my alarm and head to the toilet to prepare for school."
-    # "The splash of cold water hits my skin as I think about what to do."
 
-    
-    scene school with Fade(1.0,1.0,1.0)
+label before_class:
+    scene school with Fade(0.5,0.3,0.5)
     play music "bgm_school.mp3" volume 0.75 fadein 0.5
     "I stare at my classroom's entrance, waiting for the two celebrities to enter the classroom."
     "As my classmates slowly trickle in the classroom, I glance up to the clock hanging on the wall above the whiteboard."
@@ -116,22 +114,20 @@ label main_gameplay:
     "Once again they've started to argue in front of the whole class."
     "A crowd is forming around them, watching them argue."
     "There's even people from other classes watching them argue."
-    $ renpy.force_autosave(take_screenshot=True)
     menu:
         "What should I do?"
         "Step into to break their fighting":
             # mia affection increases
+            $ mia_affection += 1
             # james affection increases
-            # james make u p increases
+            $ james_affection += 1
             jump confrontation
 
         "Leave them alone":
             stop music
             play music "bgm_school.mp3" volume 0.75 fadein 0.5
             scene school with fade
-            $ leave_alone = True
-            # mia affection increases
-            # mia make up increases
+            $ mia_affection += 1
             "I decide to leave the two lovebirds alone."
             "Their argument will come to a halt soon and continue at the cafeteria later anyways."
             "Love knows no bounds I guess."
@@ -208,8 +204,3 @@ label confrontation:
     "The students outside of our class who were listening to the argument are long gone."
     "As footsteps approach our class, I begin to prepare listening to classes I've heard a bunch of times already."
     jump cafeteria
-
-
-    
-    # school bell sfx
-    # cafeteria bg

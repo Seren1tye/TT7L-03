@@ -659,7 +659,7 @@ label james_convo3:
     "I decide to go back home as I want to think about this in private."
     jump intermission
 
-label convo1:
+label mia_convo1:
     hide a10
     show a6 at center:
         xpos 0.5 ypos 1.04
@@ -930,6 +930,7 @@ label mia_convo15:
             jump intermission
 
         "Break up with him":
+            $ breaking_up = True
             hide a8
             show a2 at center:
                 xpos 0.501 ypos 1.028

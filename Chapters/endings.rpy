@@ -1,5 +1,6 @@
 label Best_Ending:
     'Best end'
+    return
 
 label Mia_Ending:
     # alarm sfx
@@ -336,6 +337,8 @@ label James_Ending:
 
 label Bad_Ending:
     'a'
+    return
 
 label Secret_Ending:
     'a'
+    return

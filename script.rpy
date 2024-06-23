@@ -71,44 +71,36 @@ label intermission:
 
 # For the Secret Ending
 label loop_checker:
-    if loops == 10: # If the game loops 10 time, it will unlock a secret ending
+    if loops == 10:  # If the game loops 10 times, it will unlock a secret ending
         $ loops = 0
         $ persistent.end = True
         jump Secret_Ending
     else:
-        jump ending_checker
+        jump best_or_bad_end
 
 label best_or_bad_end:
     if best_end >= 3:
         $ persistent.best_end = True
         jump Best_Ending
-    else: 
-        jump ending_checker
-    
-    if breaking_up == True:
-        $persistent.bad_end = True
+    elif breaking_up:
+        $ persistent.bad_end = True
         jump Bad_Ending
     else:
         jump ending_checker
 
 # Calculate the affection to jump into different ending
 label ending_checker:
-        if mia_affection < 3:
-            if james_affection < 3:
-                $ loops += 1
-                jump main_gameplay 
-            else:
-                $ loops += 1
-                jump main_gameplay #if Mia and James affection dint hit the requirement, the game will loop again
-        else: 
-            if mia_affection > james_affection:
-                $ persistent.mia_end = True
-                $ persistent.end = True
-                jump Mia_Ending # If Mia affection is higher than James, it jumps into Mia's Ending
-            else:
-                $ persistent.james_end = True
-                $ persistent.end = True
-                jump James_Ending # If James affection is higher than Mia, it jumps into James's Ending
+    if mia_affection < 3 and james_affection < 3:
+        $ loops += 1
+        jump main_gameplay  # if Mia and James affection didn't hit the requirement, the game will loop again
+    elif mia_affection > james_affection:
+        $ persistent.mia_end = True
+        $ persistent.end = True
+        jump Mia_Ending  # If Mia affection is higher than James, it jumps into Mia's Ending
+    else:
+        $ persistent.james_end = True
+        $ persistent.end = True
+        jump James_Ending  # If James affection is higher than Mia, it jumps into James's Ending
 
 
 

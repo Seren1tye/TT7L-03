@@ -1,5 +1,5 @@
 label Best_Ending:
-    'a'
+    'Best end'
 
 label Mia_Ending:
     # alarm sfx

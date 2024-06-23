@@ -1009,13 +1009,29 @@ label best_end_convo:
     "He's talking loudly with his group of friends."
     b "Did you see the goal I made earlier? That's why I'm the be-"
     m "Hey James!"
+    hide b5
+    show b8 at center:
+        xpos 0.486 ypos 1.04
+        xzoom 1.15 yzoom 1.15
     "James stopped talking with his friends and looked at me."
     "He had a surprised expression on his face."
     b "Miku? What do ya want?"
     m "Didn't you say that you wanna talk to me later during recess?"
+    hide b8
+    show b2 at center:
+        xpos 0.492 ypos 1.04
+        xzoom 1.15 yzoom 1.15
     b "I did?"
     "James thought for a second before he finally spoke up."
+    hide b2
+    show b4 at center:
+        xpos 0.49 ypos 1.04
+        xzoom 1.15 yzoom 1.15
     b "Oh yeah I did but I didn't expect you to actually meet-"
+    hide b4
+    show b8 at center:
+        xpos 0.486 ypos 1.04
+        xzoom 1.15 yzoom 1.15
     "I grabbed James's hand. There's no time I can't afford to make Mia wait."
     m "There's no time we gotta go!"
     b "Wait go wher-"
@@ -1023,15 +1039,27 @@ label best_end_convo:
     "I can hear his friends' confusion but I can't afford to care."
     b "Miku, where are we going??"
     m "The park."
+    scene park with Fade(0.5,0.3,0.5)
+    show b4 at center:
+        xpos 0.49 ypos 1.04
+        xzoom 1.15 yzoom 1.15
     "We finally arrived at the park after rushing to it."
     "I look around to try to find Mia. I finally spotted her after looking around a bit."
     "I point to the direction Mia is in."
     m "Hey James can you go over there for a while? I need to grab something real quick so you can chill over there."
     b "Wait Miku what is this for?"
     m "Trust me it's important. Now go!"
+    hide b4 with easeoutright
     "James heads to the location I pointed towards. It's working."
+    scene park with fade
     "I take a long route to where they are in order to avoid getting detected."
     "I hide behind the bushes and hear them arguing."
+    show a1:
+        xpos 0.53 ypos 0.21
+        xzoom 1.25 yzoom 1.25
+    show b1 at left:
+        xpos 0.2 ypos 1.1
+        xzoom 1.15 yzoom 1.15
     a "James? Why are you here?"
     b "Mia brought me here!"
     a "What is she up to? Anyways, what do you want to do?"
@@ -1042,32 +1070,72 @@ label best_end_convo:
             # best end
             $ best_end += 1
             m "Guys stop arguing! I was the one who brought you guys together."
+            hide a1
+            hide b1
+            show a11:
+                xpos 0.55 ypos 0.21
+                xzoom 1.25 yzoom 1.25
+            show b8 at left:
+                xpos 0.2 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             a "Miku? You were there the whole time?"
             m "Well I just arrived there but I overheard your argument."
             m "I brought you guys here together because I want you guys to make up."
+            hide a11
+            show a1:
+                xpos 0.53 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             a "Well why do you care?"
+            hide b8
+            show b1 at left:
+                xpos 0.2 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             b "Yeah what stake do you have in our argument."
             "Well their relationship status is dependent on me escaping this time loop but I can't tell them that."
             m "Mia, even though we aren't as close as we used to be, I still can't bear to see you two argue for this long without making up."
             m "You guys are arguing for so long to the point that everyone is wondering if anything is alright."
             m "I hope that you guys can make up."
             m "Mia, aren't you mad at James for not opening up?"
+            hide a1
+            show a6:
+                xpos 0.56 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             m "And James, don't you have something that you want to say to Mia?"
+            hide b1
+            show b4 at left:
+                xpos 0.19 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             "Mia and James" "Wait what??" 
             "Mia and James" "How did you know that?"
             m "It's tough to explain but you guys have told me about it but you both probably don't remember."
             m "Anyways please do make up."
             a "...."
             b "...."
+            hide a6
+            show a4:
+                xpos 0.55 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             a "I'm sorry James."
             a "I wanted to know why you were acting differently so I kept pestering you. I guess you were frustrated about that huh."
+            hide b4
+            show b6 at left:
+                xpos 0.2 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             b "Mia....I'm sorry for not telling you how I really feel."
             b "The truth is, I feel like I'm way out of your league."
             b "After all, I'm only good at sports while you're good at academics."
+            hide a4
+            show a5:
+                xpos 0.53 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             a "Hey that's not true! I appreciate you!"
             a "And I'm sorry for acting melodramatic sometimes."
             b "I'm sorry for acting very childish towards you."
             a "Wanna make up?"
+            hide b6
+            show b4 at left:
+                xpos 0.19 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             b "Sure."
             "Mia and James embrace themselves in a hug."
             "Looks like I can quietly leave them."
@@ -1084,15 +1152,26 @@ label best_end_convo:
             b "Do I treat everything like it's the end of the world?"
             a "Ohmygod."
             b "Well I'm breaking up with you!"
+            hide a1
+            show a11:
+                xpos 0.55 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             a "W-what."
             b "It's obvious that we'll be unhappy if we continue on like this."
+            hide b1
+            show b6 at left:
+                xpos 0.2 ypos 1.1
+                xzoom 1.15 yzoom 1.15
             b "We need to break up."
             a "J-james wait pleas-"
             b "I'm sorry Mia."
+            hide b6 with easeoutleft
             "I hear footsteps walking."
+            hide a11
+            show a5:
+                xpos 0.53 ypos 0.21
+                xzoom 1.25 yzoom 1.25
             "Looks like James is serious about breaking up."
             "I can hear sobbing. Sounds like Mia."
             "I quietly leave the park to avoid alerting Mia of my presence."
-
-    # put a best end flag here i'll slot it in when I add in the text.
-    return
+            jump intermission

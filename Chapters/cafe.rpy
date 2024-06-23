@@ -1,5 +1,5 @@
 label cafeteria:
-    scene cafe with Fade(1.0, 1.0, 1.0)
+    scene cafe with Fade(0.5,0.3,0.5)
     play music "bgm_cafe.mp3" fadein 0.5 volume 0.75
     "It's time for recess."
     "Mia and James are going to argue soon."

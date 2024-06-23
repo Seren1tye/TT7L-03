@@ -50,7 +50,7 @@ label main_gameplay:
     # Alarm sfx
     # Stop alarm sfx
     # if 1st loop
-    scene room with Fade(1.0,0.5,1.0)
+    scene room with Fade(0.5,0.3,0.5)
     "I rise up from my bed and look towards my phone."
     "I stare at my phone and as if on cue, my alarm starts to ring."
     play music "sfx_alarm.mp3"

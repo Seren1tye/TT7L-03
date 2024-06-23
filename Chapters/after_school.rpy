@@ -1,4 +1,6 @@
 label after_school:
+    play audio "sfx_bell.mp3" volume 0.75
+    play music "bgm_cafe.mp3"
     scene school with Fade(0.5,0.3,0.5)
     "Finally school is over for the day."
     "Until I wake up again and relive this day again."
@@ -24,7 +26,7 @@ label after_school:
             $ james_affection += 1
             jump James
         
-        "Both" if persistent.mia_end and persistent.james_end:
+        "Both" if persistent.mia_end and persistent.james_end and both == True:
             # best end
             $ best_end += 1
             jump best_end_convo
@@ -38,7 +40,10 @@ label Mia:
     "I approach Mia."
     "She isn't with her posse. Guess she didn't want to talk to them right now."
     "Makes it easier to approach her."
+    stop music fadeout 0.5
     if mia_cafe == False:
+        
+        play music "bgm_mia.mp3" fadein 0.5 volume 0.75
         m "Hey Mia."
         a "Oh it's you."
         hide a8
@@ -75,6 +80,7 @@ label Mia:
 
         if breakup == True:
             "Mia has a melancholic expression on her face. Maybe it's because I suggested that she break up with James?"
+        play music "bgm_mia.mp3" fadein 0.5 volume 0.75
         m "Hey Mia."
         hide a8
         show a10 at center:
@@ -141,7 +147,6 @@ label Mia:
                 xzoom 1.25 yzoom 1.25
             a "Hmmm....how about the park? Does that sound good?"
             a "I'd be down to that."
-            # clap sfx
             "Mia clasps her hands together loudly."
             "Alright to the park we go then!"
             hide a7 with easeoutleft
@@ -174,7 +179,7 @@ label mia_walk:
 
     menu:
         "What's going on with you and James?":
-            # lead up to bad end.
+            $ breaking_up = True
             jump mia_convo1
         "Then why did you ignore me?":
             # mia affection increases
@@ -573,6 +578,7 @@ label james_convo2:
         "What about breaking up with her?":
             # james affection increases
             $ james_affection += 1
+            $ breaking_up = True
             jump james_convo3
 
 label james_convo3:
@@ -764,6 +770,7 @@ label mia_convo2:
             jump intermission
 
         "Don't forgive her":
+            $ mia_affection -= 10
             a "Hahahaha....what was I thinking?"
             a "Of course you won't forgive me. I did destroy our friendship because I thought it was uncool."
             hide a5
@@ -1141,7 +1148,7 @@ label best_end_convo:
             "Mia and James embrace themselves in a hug."
             "Looks like I can quietly leave them."
             "I slip away from the park without disturbing them."
-            jump intermission
+            jump Best_Ending
         
         "Leave out of it":
             "I decided to stay put."

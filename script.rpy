@@ -28,6 +28,7 @@ default confront = False
 default breakup = False
 default best_end = 0
 default breaking_up = False
+default both = False
 
 # Defining images
 image a1 = "Mia 1.png"
@@ -57,12 +58,15 @@ image schoolout = "school_out.jpg"
 image park = "park.jpg"
 image cafe = "cafe.png"
 image school2 = "jamescafe.jpg"
+image bs = "bs.jpg"
+image ws = "ws.png"
 # The game starts here.
 
 label start:
-    jump prologue
+    jump main_game0
 
 label intermission:
+    stop music
     scene room with Fade(0.5,0.3,0.5)
     "I return back to my room."
     "It's been quite a long day, hopefully this never-ending day finally comes to an end."
@@ -73,16 +77,14 @@ label intermission:
 label loop_checker:
     if loops == 10:  # If the game loops 10 times, it will unlock a secret ending
         $ loops = 0
+        $ persistent.secret_end = True
         $ persistent.end = True
         jump Secret_Ending
     else:
         jump best_or_bad_end
-
+# Check if the best end or bad end flags are triggered
 label best_or_bad_end:
-    if best_end >= 3:
-        $ persistent.best_end = True
-        jump Best_Ending
-    elif breaking_up:
+    if breaking_up == True:
         $ persistent.bad_end = True
         jump Bad_Ending
     else:

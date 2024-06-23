@@ -144,7 +144,8 @@ label cafe_table:
             "I'm just basing things off from a romance anime I once watched."
             "Mia doesn't need to know that though."
             a "I-I'll keep that in mind."
-            # bell sfx
+            stop music
+            play audio "sfx_bell.mp3" volume 0.75
             hide a6
             show a11 at center:
                 xpos 0.5034 ypos 1.02
@@ -173,7 +174,8 @@ label cafe_table:
             a "I...."
             "Mia fell silent."
             m "Well I'm just saying what I think. It's up to you if you want to listen to me."
-            # bell sfx
+            stop music
+            play audio "sfx_bell.mp3" volume 0.75
             "Looks like recess is over now. Better head back to class."
             m "Well I'll see you in class Mia."
             "Mia didn't respond. Looks like she's pondering on what I said to her."
@@ -188,6 +190,7 @@ label corner:
     "There's only 3 students around and they're a few tables away from where I'm sitting."
     "Recess did just start recently so the cafeteria isn't crowded yet."
     if persistent.mia_end and persistent.james_end:
+        $ both = True
         $ best_end += 1
         "I should probably try to get Mia and James to both meet up sometime after school."
         "It feels kinda familiar that I’ve met either James or Mia in the cafe."
@@ -227,7 +230,8 @@ label corner:
         "This time I should try to flatter him."
         m "Well I did but she didn't say anything so I might as well ask someone who actually knows his stuff. "
         "Oh uh. Yeah that's me alright. Yeah."
-        #school bell
+        stop music
+        play audio "sfx_bell.mp3" volume 0.75
         "Damn it. I ran out of time."
         b "I'll tell you later."
         "James rushes off to class."
@@ -241,7 +245,8 @@ label corner:
         "I never really paid attention to where he went off too afterwards."
         "As I ate my [food] in silence, people started to fill up the empty seats."
         "I haven't seen either Mia or James head towards this corner."
-        # bell sfx
+        stop music
+        play audio "sfx_bell.mp3" volume 0.75
         "Looks like recess is over."
         "Neither James nor Mia came here."
         "Looks like I have to find another spot to find either one of them."
@@ -275,9 +280,11 @@ label wander:
     show b6 at center with dissolve:
         ypos 1.05
     b "I wish I knew what went wrong."
+    stop music fadeout 0.5
     "I hear James speak as he exits the restroom."
     "I turn around and see him lost in thought. Looks like he was talking to himself."
     "He turned to my direction and started walking before he noticed me."
+    play music "bgm_james.mp3" volume 0.75
     m "Ah!"
     hide b6
     show b8 at center:
@@ -363,7 +370,8 @@ label wander:
             b "Says the one who usually sits alone every time."
             "Fair point but this guy really gets on my nerves."
             m "At least I'm not-"
-            # bell sfx
+            stop music
+            play audio "sfx_bell.mp3" volume 0.75
             hide b2
             show b8 at center:
                 xpos 0.486 ypos 1.05
@@ -385,7 +393,8 @@ label wander:
             m "Hey!"
             "It's too late as he's too far away to hear me."
             "I decide to loiter around waiting for the bell to ring as I have nothing to do. It's not like I have enough time to talk to Mia anyways."
-            # Bell sfx
+            stop music
+            play audio "sfx_bell.mp3" volume 0.75
             "Looks like recess is over."
             "I head back towards the classroom so I won't be late to class."
             jump after_school

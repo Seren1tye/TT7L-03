@@ -1623,27 +1623,25 @@ screen endings():
         
             if persistent.mia_end:
                 text ("Mia's Ending")
-                image 'mia_ver0'
+                image 'mia_end'
             else:
                 image ('questionmark.jpg')
                 #text ("Obtain this ending first.")
 
             if persistent.james_end:
                 text ("James's Ending")
-                image 'james_ver0'
+                image 'james_end'
             else:
                 image ('questionmark.jpg')
 
 
             if persistent.bad_end:
                 text ("Bad Ending")
-                image 'bad_end'
+                image 'bad_end.png'
             else:
                 image ('questionmark.jpg')
 
 
             if persistent.secret_end:
                 text ("Secret Ending")
-                image 'secret_end'
-            else:
-                image ('questionmark.jpg')
+                image 'secret_end.png'

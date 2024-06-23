@@ -75,7 +75,6 @@ label before_class:
         xpos 0.55 ypos 0.2
         xzoom 1.5 yzoom 1.5
     "Girl A" "OMG Mia! You should tell us!"
-    # "Sarah" "Yeah we're starving for tea over here! Tell us what happened!!"
     "Girl C" "Girl you can't just argue with your boyfriend and NOT expect us to ask."
     hide a2
     show a1:
